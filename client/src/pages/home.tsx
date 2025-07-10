@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Switch } from '@/components/ui/switch'
 import { Loader2, CheckCircle, XCircle } from 'lucide-react'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import {
@@ -16,7 +20,9 @@ import {
   DevicePhoneMobileIcon,
   DeviceTabletIcon,
   ComputerDesktopIcon,
-  TvIcon
+  TvIcon,
+  ChevronDownIcon,
+  EyeIcon
 } from '@heroicons/react/24/outline'
 import logoPath from '@assets/icon_fimainfo_1752137499908.png'
 
@@ -24,9 +30,9 @@ const THEMES = {
   sam: {
     label: 'SAM',
     vars: {
-      '--primary': 'hsl(213, 66%, 13%)',
+      '--primary': 'hsl(210, 6%, 21%)',
       '--background': 'hsl(0, 0%, 100%)',
-      '--foreground': 'hsl(213, 66%, 13%)',
+      '--foreground': 'hsl(210, 6%, 21%)',
       '--accent': 'hsl(217, 91%, 60%)',
       '--muted': 'hsl(0, 0%, 87%)'
     }
@@ -352,6 +358,144 @@ export default function Home() {
             <div className="p-6 bg-muted rounded-lg">Content Bloc 4</div>
             <div className="p-6 bg-muted rounded-lg">Content Bloc 5</div>
             <div className="p-6 bg-muted rounded-lg">Content Bloc 6</div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Composants d'interface">
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <h3 className="text-lg font-medium">Champs de saisie</h3>
+            <div className="flex flex-wrap gap-3">
+              <Input placeholder="Nom d'utilisateur" className="w-48" />
+              <Input type="email" placeholder="Email" className="w-48" />
+              <Input type="password" placeholder="Mot de passe" className="w-48" />
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <h3 className="text-lg font-medium">Badges et étiquettes</h3>
+            <div className="flex flex-wrap gap-2">
+              <Badge variant="default">Nouveau</Badge>
+              <Badge variant="secondary">En cours</Badge>
+              <Badge variant="destructive">Urgent</Badge>
+              <Badge variant="outline">Terminé</Badge>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h3 className="text-lg font-medium">Commutateurs</h3>
+            <div className="flex items-center space-x-2">
+              <Switch id="notifications" />
+              <label htmlFor="notifications" className="text-sm">Notifications activées</label>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Mise en page et cartes">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <HomeIcon className="w-5 h-5" />
+                Accueil
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Tableau de bord principal avec vue d'ensemble des données importantes.
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <UserIcon className="w-5 h-5" />
+                Profil utilisateur
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Gestion des informations personnelles et paramètres du compte.
+              </p>
+            </CardContent>
+          </Card>
+          
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Cog6ToothIcon className="w-5 h-5" />
+                Paramètres
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Configuration avancée et préférences de l'application.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </Section>
+
+      <Section title="Navigation et menu">
+        <div className="space-y-4">
+          <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
+            <div className="flex items-center gap-3">
+              <img 
+                src={logoPath} 
+                alt="Logo" 
+                className="w-8 h-8 object-contain"
+              />
+              <span className="font-semibold">FIMA1NFO</span>
+            </div>
+            <nav className="flex items-center gap-4">
+              <a href="#" className="text-sm hover:text-accent transition-colors">Accueil</a>
+              <a href="#" className="text-sm hover:text-accent transition-colors">Services</a>
+              <a href="#" className="text-sm hover:text-accent transition-colors">Contact</a>
+              <Button size="sm">Se connecter</Button>
+            </nav>
+          </div>
+          
+          <div className="flex flex-col gap-2 p-4 bg-muted rounded-lg w-64">
+            <div className="flex items-center justify-between p-2 hover:bg-background rounded cursor-pointer transition-colors">
+              <div className="flex items-center gap-2">
+                <HomeIcon className="w-4 h-4" />
+                <span className="text-sm">Tableau de bord</span>
+              </div>
+            </div>
+            <div className="flex items-center justify-between p-2 hover:bg-background rounded cursor-pointer transition-colors">
+              <div className="flex items-center gap-2">
+                <UserIcon className="w-4 h-4" />
+                <span className="text-sm">Utilisateurs</span>
+              </div>
+              <ChevronDownIcon className="w-4 h-4" />
+            </div>
+            <div className="flex items-center justify-between p-2 hover:bg-background rounded cursor-pointer transition-colors">
+              <div className="flex items-center gap-2">
+                <Cog6ToothIcon className="w-4 h-4" />
+                <span className="text-sm">Paramètres</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Espacement et grille">
+        <div className="space-y-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div key={i} className="p-4 bg-muted rounded-lg text-center text-sm">
+                Colonne {i}
+              </div>
+            ))}
+          </div>
+          <div className="space-y-3">
+            <div className="p-2 bg-muted rounded">Espacement XS (8px)</div>
+            <div className="p-3 bg-muted rounded">Espacement SM (12px)</div>
+            <div className="p-4 bg-muted rounded">Espacement MD (16px)</div>
+            <div className="p-6 bg-muted rounded">Espacement LG (24px)</div>
           </div>
         </div>
       </Section>

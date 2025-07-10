@@ -33,11 +33,11 @@ const THEMES = {
   accent: {
     label: 'Accent Light',
     vars: {
-      '--primary': 'hsl(43, 96%, 56%)',
+      '--primary': 'hsl(280, 85%, 60%)',
       '--background': 'hsl(0, 0%, 100%)',
       '--foreground': 'hsl(213, 66%, 13%)',
-      '--accent': 'hsl(155, 48%, 45%)',
-      '--muted': 'hsl(228, 33%, 94%)'
+      '--accent': 'hsl(45, 93%, 58%)',
+      '--muted': 'hsl(280, 15%, 95%)'
     }
   }
 } as const
@@ -161,20 +161,20 @@ export default function Home() {
       </Section>
 
       <Section title="Boutons">
-        <div className="flex flex-wrap gap-4 items-center">
-          <Button>Primary</Button>
-          <Button variant="secondary">Secondary</Button>
-          <Button disabled>Disabled</Button>
-          <Button>
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+        <div className="flex flex-wrap gap-2 items-center">
+          <Button size="sm" className="text-xs px-3 py-1 h-8">Primary</Button>
+          <Button size="sm" variant="secondary" className="text-xs px-3 py-1 h-8">Secondary</Button>
+          <Button size="sm" disabled className="text-xs px-3 py-1 h-8">Disabled</Button>
+          <Button size="sm" className="text-xs px-3 py-1 h-8">
+            <Loader2 className="w-3 h-3 mr-1 animate-spin" />
             Loading
           </Button>
-          <Button variant="destructive">
-            <XCircle className="w-4 h-4 mr-2" />
+          <Button size="sm" variant="destructive" className="text-xs px-3 py-1 h-8">
+            <XCircle className="w-3 h-3 mr-1" />
             Error
           </Button>
-          <Button className="btn-success">
-            <CheckCircle className="w-4 h-4 mr-2" />
+          <Button size="sm" className="btn-success text-xs px-3 py-1 h-8">
+            <CheckCircle className="w-3 h-3 mr-1" />
             Success
           </Button>
         </div>
@@ -215,8 +215,8 @@ export default function Home() {
             <XCircle className="w-4 h-4" />
             <span>Erreur : impossible de charger</span>
           </div>
-          <div className="flex items-center gap-2 p-4 bg-accent/20 rounded-lg">
-            <InformationCircleIcon className="w-5 h-5 text-accent" />
+          <div className="flex items-start gap-2">
+            <InformationCircleIcon className="w-4 h-4 text-accent mt-0.5" />
             <span className="text-sm italic text-foreground">
               Aucun résultat trouvé.
             </span>

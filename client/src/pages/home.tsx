@@ -379,7 +379,7 @@ export default function Home() {
               <Badge variant="default">Nouveau</Badge>
               <Badge variant="secondary">En cours</Badge>
               <Badge variant="destructive">Urgent</Badge>
-              <Badge variant="outline">Terminé</Badge>
+              <Badge className="bg-green-600 hover:bg-green-700 text-white">Terminé</Badge>
             </div>
           </div>
 
@@ -393,94 +393,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section title="Mise en page et cartes">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <HomeIcon className="w-5 h-5" />
-                Accueil
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Tableau de bord principal avec vue d'ensemble des données importantes.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <UserIcon className="w-5 h-5" />
-                Profil utilisateur
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Gestion des informations personnelles et paramètres du compte.
-              </p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Cog6ToothIcon className="w-5 h-5" />
-                Paramètres
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                Configuration avancée et préférences de l'application.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </Section>
 
-      <Section title="Navigation et menu">
-        <div className="space-y-4">
-          <div className="flex items-center justify-between p-4 bg-muted rounded-lg">
-            <div className="flex items-center gap-3">
-              <img 
-                src={logoPath} 
-                alt="Logo" 
-                className="w-8 h-8 object-contain"
-              />
-              <span className="font-semibold">FIMA1NFO</span>
-            </div>
-            <nav className="flex items-center gap-4">
-              <a href="#" className="text-sm hover:text-accent transition-colors">Accueil</a>
-              <a href="#" className="text-sm hover:text-accent transition-colors">Services</a>
-              <a href="#" className="text-sm hover:text-accent transition-colors">Contact</a>
-              <Button size="sm">Se connecter</Button>
-            </nav>
-          </div>
-          
-          <div className="flex flex-col gap-2 p-4 bg-muted rounded-lg w-64">
-            <div className="flex items-center justify-between p-2 hover:bg-background rounded cursor-pointer transition-colors">
-              <div className="flex items-center gap-2">
-                <HomeIcon className="w-4 h-4" />
-                <span className="text-sm">Tableau de bord</span>
-              </div>
-            </div>
-            <div className="flex items-center justify-between p-2 hover:bg-background rounded cursor-pointer transition-colors">
-              <div className="flex items-center gap-2">
-                <UserIcon className="w-4 h-4" />
-                <span className="text-sm">Utilisateurs</span>
-              </div>
-              <ChevronDownIcon className="w-4 h-4" />
-            </div>
-            <div className="flex items-center justify-between p-2 hover:bg-background rounded cursor-pointer transition-colors">
-              <div className="flex items-center gap-2">
-                <Cog6ToothIcon className="w-4 h-4" />
-                <span className="text-sm">Paramètres</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
 
       <Section title="Espacement et grille">
         <div className="space-y-4">

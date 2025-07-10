@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a full-stack web application built with a React frontend and Express.js backend. The application serves as a design system demo for FIMA1NFO, showcasing UI components and theming capabilities. It features a modern tech stack with TypeScript, shadcn/ui components, and PostgreSQL database integration through Drizzle ORM.
+This is a Next.js web application built with React and TypeScript. The application serves as a design system demo for FIMA1NFO, showcasing UI components and theming capabilities. It features a modern tech stack with Next.js App Router, shadcn/ui components, and comprehensive theme management system.
 
 ## User Preferences
 
@@ -11,19 +11,14 @@ Preferred communication style: Simple, everyday language.
 ## System Architecture
 
 ### Frontend Architecture
-- **Framework**: React 18 with TypeScript
-- **Styling**: Tailwind CSS with shadcn/ui component library
-- **Routing**: Wouter for client-side routing
-- **State Management**: TanStack Query for server state management
-- **Build Tool**: Vite for development and build processes
-- **Component System**: Comprehensive UI library based on Radix UI primitives
-
-### Backend Architecture
-- **Runtime**: Node.js with Express.js framework
+- **Framework**: Next.js 15 with App Router and React 18
 - **Language**: TypeScript with ES modules
-- **API Pattern**: RESTful API with `/api` prefix
-- **Development**: Hot reload with tsx for TypeScript execution
-- **Error Handling**: Centralized error middleware with status code mapping
+- **Styling**: Tailwind CSS with shadcn/ui component library
+- **Routing**: Next.js App Router with file-based routing
+- **State Management**: Client-side state with React hooks
+- **Build Tool**: Next.js with built-in optimization
+- **Component System**: Comprehensive UI library based on Radix UI primitives
+- **Image Optimization**: Next.js Image component for optimized assets
 
 ### Database Architecture
 - **ORM**: Drizzle ORM for type-safe database operations

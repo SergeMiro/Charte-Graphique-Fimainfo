@@ -5,13 +5,23 @@ import {
   InformationCircleIcon,
   HomeIcon,
   UserIcon,
-  Cog6ToothIcon
+  Cog6ToothIcon,
+  BellIcon,
+  EnvelopeIcon,
+  HeartIcon,
+  MagnifyingGlassIcon,
+  ShoppingCartIcon,
+  StarIcon,
+  DevicePhoneMobileIcon,
+  DeviceTabletIcon,
+  ComputerDesktopIcon,
+  TvIcon
 } from '@heroicons/react/24/outline'
 import logoPath from '@assets/icon_fimainfo_1752137499908.png'
 
 const THEMES = {
   sam: {
-    label: 'SAM Light (par défaut)',
+    label: 'SAM',
     vars: {
       '--primary': 'hsl(213, 66%, 13%)',
       '--background': 'hsl(0, 0%, 100%)',
@@ -23,21 +33,21 @@ const THEMES = {
   dark: {
     label: 'Business Dark',
     vars: {
-      '--primary': 'hsl(217, 91%, 60%)',
-      '--background': 'hsl(217, 28%, 10%)',
+      '--primary': 'hsl(195, 16%, 43%)',
+      '--background': 'hsl(229, 24%, 12%)',
       '--foreground': 'hsl(0, 0%, 100%)',
-      '--accent': 'hsl(142, 35%, 45%)',
-      '--muted': 'hsl(217, 10%, 25%)'
+      '--accent': 'hsl(210, 11%, 31%)',
+      '--muted': 'hsl(236, 11%, 27%)'
     }
   },
   accent: {
     label: 'Accent Light',
     vars: {
-      '--primary': 'hsl(280, 85%, 60%)',
-      '--background': 'hsl(0, 0%, 100%)',
-      '--foreground': 'hsl(213, 66%, 13%)',
-      '--accent': 'hsl(45, 93%, 58%)',
-      '--muted': 'hsl(280, 15%, 95%)'
+      '--primary': 'hsl(210, 11%, 71%)',
+      '--background': 'hsl(210, 17%, 98%)',
+      '--foreground': 'hsl(210, 10%, 23%)',
+      '--accent': 'hsl(210, 16%, 82%)',
+      '--muted': 'hsl(210, 14%, 89%)'
     }
   }
 } as const
@@ -46,6 +56,7 @@ type ThemeKey = keyof typeof THEMES
 
 export default function Home() {
   const [theme, setTheme] = useState<ThemeKey>('sam')
+  const [activeDevice, setActiveDevice] = useState<'mobile' | 'tablet' | 'laptop' | 'desktop' | 'tv'>('mobile')
 
   useEffect(() => {
     const root = document.documentElement
@@ -144,9 +155,7 @@ export default function Home() {
             Exemple de texte en police secondaire pour montrer le
             contraste visuel du style.
           </p>
-          <p className="text-sm italic text-muted-foreground">
-            Annotation / légende
-          </p>
+
         </div>
       </Section>
 
@@ -181,22 +190,46 @@ export default function Home() {
       </Section>
 
       <Section title="Icônes Heroicons">
-        <div className="flex flex-wrap gap-6 items-center">
+        <div className="flex flex-wrap gap-4 items-center">
           <div className="flex flex-col items-center gap-1 text-foreground">
-            <InformationCircleIcon className="w-8 h-8" />
+            <InformationCircleIcon className="w-6 h-6" />
             <span className="text-xs">Info</span>
           </div>
           <div className="flex flex-col items-center gap-1 text-foreground">
-            <HomeIcon className="w-8 h-8" />
+            <HomeIcon className="w-6 h-6" />
             <span className="text-xs">Home</span>
           </div>
           <div className="flex flex-col items-center gap-1 text-foreground">
-            <UserIcon className="w-8 h-8" />
+            <UserIcon className="w-6 h-6" />
             <span className="text-xs">User</span>
           </div>
           <div className="flex flex-col items-center gap-1 text-foreground">
-            <Cog6ToothIcon className="w-8 h-8" />
+            <Cog6ToothIcon className="w-6 h-6" />
             <span className="text-xs">Settings</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <BellIcon className="w-6 h-6" />
+            <span className="text-xs">Bell</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <EnvelopeIcon className="w-6 h-6" />
+            <span className="text-xs">Mail</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <HeartIcon className="w-6 h-6" />
+            <span className="text-xs">Heart</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <MagnifyingGlassIcon className="w-6 h-6" />
+            <span className="text-xs">Search</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <ShoppingCartIcon className="w-6 h-6" />
+            <span className="text-xs">Cart</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <StarIcon className="w-6 h-6" />
+            <span className="text-xs">Star</span>
           </div>
         </div>
       </Section>
@@ -217,7 +250,7 @@ export default function Home() {
           </div>
           <div className="flex items-start gap-2">
             <InformationCircleIcon className="w-4 h-4 text-accent mt-0.5" />
-            <span className="text-sm italic text-foreground">
+            <span className="text-sm italic text-accent">
               Aucun résultat trouvé.
             </span>
           </div>
@@ -225,19 +258,64 @@ export default function Home() {
       </Section>
 
       <Section title="Responsive & Breakpoints">
-        <div className="grid gap-2 text-center sm:grid-cols-2 lg:grid-cols-3">
-          <div className="p-4 bg-muted rounded-lg">mobile & up</div>
-          <div className="p-4 bg-muted rounded-lg hidden tablette:block">
-            tablette & up
+        <div className="space-y-4">
+          <div className="flex gap-2 items-center">
+            <Button
+              size="sm"
+              variant={activeDevice === 'mobile' ? 'default' : 'outline'}
+              onClick={() => setActiveDevice('mobile')}
+              className="text-xs px-3 py-1 h-8"
+            >
+              <DevicePhoneMobileIcon className="w-4 h-4" />
+            </Button>
+            <Button
+              size="sm"
+              variant={activeDevice === 'tablet' ? 'default' : 'outline'}
+              onClick={() => setActiveDevice('tablet')}
+              className="text-xs px-3 py-1 h-8"
+            >
+              <DeviceTabletIcon className="w-4 h-4" />
+            </Button>
+            <Button
+              size="sm"
+              variant={activeDevice === 'laptop' ? 'default' : 'outline'}
+              onClick={() => setActiveDevice('laptop')}
+              className="text-xs px-3 py-1 h-8"
+            >
+              <ComputerDesktopIcon className="w-4 h-4" />
+            </Button>
+            <Button
+              size="sm"
+              variant={activeDevice === 'desktop' ? 'default' : 'outline'}
+              onClick={() => setActiveDevice('desktop')}
+              className="text-xs px-3 py-1 h-8"
+            >
+              <ComputerDesktopIcon className="w-4 h-4" />
+            </Button>
+            <Button
+              size="sm"
+              variant={activeDevice === 'tv' ? 'default' : 'outline'}
+              onClick={() => setActiveDevice('tv')}
+              className="text-xs px-3 py-1 h-8"
+            >
+              <TvIcon className="w-4 h-4" />
+            </Button>
           </div>
-          <div className="p-4 bg-muted rounded-lg hidden laptop:block">
-            laptop & up
-          </div>
-          <div className="p-4 bg-muted rounded-lg hidden pc:block">
-            pc & up
-          </div>
-          <div className="p-4 bg-muted rounded-lg hidden 4k:block">
-            4k & up
+          
+          <div className={`
+            grid gap-3 text-center text-sm font-medium
+            ${activeDevice === 'mobile' ? 'grid-cols-1' : ''}
+            ${activeDevice === 'tablet' ? 'grid-cols-2' : ''}
+            ${activeDevice === 'laptop' ? 'grid-cols-3' : ''}
+            ${activeDevice === 'desktop' ? 'grid-cols-4' : ''}
+            ${activeDevice === 'tv' ? 'grid-cols-5' : ''}
+          `}>
+            <div className="p-6 bg-muted rounded-lg">Content Bloc 1</div>
+            <div className="p-6 bg-muted rounded-lg">Content Bloc 2</div>
+            <div className="p-6 bg-muted rounded-lg">Content Bloc 3</div>
+            <div className="p-6 bg-muted rounded-lg">Content Bloc 4</div>
+            <div className="p-6 bg-muted rounded-lg">Content Bloc 5</div>
+            <div className="p-6 bg-muted rounded-lg">Content Bloc 6</div>
           </div>
         </div>
       </Section>

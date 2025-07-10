@@ -1,0 +1,239 @@
+import React, { useState, useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import { Loader2, CheckCircle, XCircle } from 'lucide-react'
+import {
+  InformationCircleIcon,
+  HomeIcon,
+  UserIcon,
+  Cog6ToothIcon
+} from '@heroicons/react/24/outline'
+
+const THEMES = {
+  sam: {
+    label: 'SAM Light (par défaut)',
+    vars: {
+      '--primary': 'hsl(213, 66%, 13%)',
+      '--background': 'hsl(0, 0%, 100%)',
+      '--foreground': 'hsl(213, 66%, 13%)',
+      '--accent': 'hsl(217, 91%, 60%)',
+      '--muted': 'hsl(0, 0%, 87%)'
+    }
+  },
+  dark: {
+    label: 'Business Dark',
+    vars: {
+      '--primary': 'hsl(217, 91%, 60%)',
+      '--background': 'hsl(217, 28%, 10%)',
+      '--foreground': 'hsl(0, 0%, 100%)',
+      '--accent': 'hsl(142, 35%, 45%)',
+      '--muted': 'hsl(217, 10%, 25%)'
+    }
+  },
+  accent: {
+    label: 'Accent Light',
+    vars: {
+      '--primary': 'hsl(43, 96%, 56%)',
+      '--background': 'hsl(0, 0%, 100%)',
+      '--foreground': 'hsl(213, 66%, 13%)',
+      '--accent': 'hsl(155, 48%, 45%)',
+      '--muted': 'hsl(228, 33%, 94%)'
+    }
+  }
+} as const
+
+type ThemeKey = keyof typeof THEMES
+
+export default function Home() {
+  const [theme, setTheme] = useState<ThemeKey>('sam')
+
+  useEffect(() => {
+    const root = document.documentElement
+    const vars = THEMES[theme].vars
+    Object.entries(vars).forEach(([key, value]) => {
+      root.style.setProperty(key, value)
+    })
+  }, [theme])
+
+  const ThemeSelect = () => (
+    <div className="flex gap-4">
+      {Object.entries(THEMES).map(([key, t]) => (
+        <Button
+          key={key}
+          variant={theme === key ? 'default' : 'secondary'}
+          onClick={() => setTheme(key as ThemeKey)}
+        >
+          {t.label}
+        </Button>
+      ))}
+    </div>
+  )
+
+  const ColorSwatch = ({
+    name,
+    cssVar
+  }: {
+    name: string
+    cssVar: string
+  }) => (
+    <div className="flex flex-col items-center gap-1 text-xs">
+      <div
+        className="w-16 h-16 rounded-lg border"
+        style={{ backgroundColor: `var(${cssVar})` }}
+      />
+      <span className="font-mono">{name}</span>
+    </div>
+  )
+
+  const Section = ({
+    title,
+    children
+  }: {
+    title: string
+    children: React.ReactNode
+  }) => (
+    <section className="py-8 border-b last:border-b-0 border-muted">
+      <h2 className="text-2xl font-semibold mb-4 tracking-tight">
+        {title}
+      </h2>
+      {children}
+    </section>
+  )
+
+  return (
+    <main className="px-4 md:px-10 max-w-5xl mx-auto font-primary transition-colors">
+      <header className="py-6 flex items-center justify-between">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider">
+          FIMA1NFO
+        </h1>
+        <ThemeSelect />
+      </header>
+
+      <Section title="Typographie">
+        <div className="space-y-4">
+          <p className="text-sm text-muted-foreground font-primary">
+            Police principale : Inter – fallback : sans-serif
+          </p>
+          <p className="text-sm text-muted-foreground font-secondary">
+            Police secondaire : Merriweather – fallback : serif
+          </p>
+          <h1 className="text-4xl lg:text-5xl font-bold font-primary">
+            Titre niveau 1 / h1
+          </h1>
+          <h2 className="text-3xl font-semibold font-primary">
+            Titre niveau 2 / h2
+          </h2>
+          <h3 className="text-2xl font-medium font-primary">
+            Sous-titre / h3
+          </h3>
+          <p className="text-base leading-relaxed font-primary">
+            Corps de texte principal : Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit.
+          </p>
+          <p className="text-base leading-relaxed font-secondary">
+            Exemple de texte en police secondaire pour montrer le
+            contraste visuel du style.
+          </p>
+          <p className="text-sm italic text-muted-foreground">
+            Annotation / légende
+          </p>
+        </div>
+      </Section>
+
+      <Section title="Palette de couleurs – thème actuel">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+          <ColorSwatch name="Primary" cssVar="--primary" />
+          <ColorSwatch name="Background" cssVar="--background" />
+          <ColorSwatch name="Foreground" cssVar="--foreground" />
+          <ColorSwatch name="Accent" cssVar="--accent" />
+          <ColorSwatch name="Muted" cssVar="--muted" />
+        </div>
+      </Section>
+
+      <Section title="Boutons">
+        <div className="flex flex-wrap gap-4 items-center">
+          <Button>Primary</Button>
+          <Button variant="secondary">Secondary</Button>
+          <Button disabled>Disabled</Button>
+          <Button>
+            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+            Loading
+          </Button>
+          <Button variant="destructive">
+            <XCircle className="w-4 h-4 mr-2" />
+            Error
+          </Button>
+          <Button className="btn-success">
+            <CheckCircle className="w-4 h-4 mr-2" />
+            Success
+          </Button>
+        </div>
+      </Section>
+
+      <Section title="Icônes Heroicons">
+        <div className="flex flex-wrap gap-6 items-center">
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <InformationCircleIcon className="w-8 h-8" />
+            <span className="text-xs">Info</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <HomeIcon className="w-8 h-8" />
+            <span className="text-xs">Home</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <UserIcon className="w-8 h-8" />
+            <span className="text-xs">User</span>
+          </div>
+          <div className="flex flex-col items-center gap-1 text-foreground">
+            <Cog6ToothIcon className="w-8 h-8" />
+            <span className="text-xs">Settings</span>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="États & Feedback utilisateur">
+        <div className="space-y-4">
+          <div className="flex items-center gap-2 text-sm">
+            <Loader2 className="w-4 h-4 animate-spin" />
+            <span>Chargement…</span>
+          </div>
+          <div className="flex items-center gap-2 text-green-600 text-sm">
+            <CheckCircle className="w-4 h-4" />
+            <span>Succès ! Données enregistrées</span>
+          </div>
+          <div className="flex items-center gap-2 text-red-600 text-sm">
+            <XCircle className="w-4 h-4" />
+            <span>Erreur : impossible de charger</span>
+          </div>
+          <div className="flex items-center gap-2 p-4 bg-accent/20 rounded-lg">
+            <InformationCircleIcon className="w-5 h-5 text-accent" />
+            <span className="text-sm italic text-foreground">
+              Aucun résultat trouvé.
+            </span>
+          </div>
+        </div>
+      </Section>
+
+      <Section title="Responsive & Breakpoints">
+        <div className="grid gap-2 text-center sm:grid-cols-2 lg:grid-cols-3">
+          <div className="p-4 bg-muted rounded-lg">mobile & up</div>
+          <div className="p-4 bg-muted rounded-lg hidden tablette:block">
+            tablette & up
+          </div>
+          <div className="p-4 bg-muted rounded-lg hidden laptop:block">
+            laptop & up
+          </div>
+          <div className="p-4 bg-muted rounded-lg hidden pc:block">
+            pc & up
+          </div>
+          <div className="p-4 bg-muted rounded-lg hidden 4k:block">
+            4k & up
+          </div>
+        </div>
+      </Section>
+
+      <footer className="py-8 text-center text-sm text-muted-foreground">
+        © 2025 FIMA1NFO – Charte graphique démonstrative.
+      </footer>
+    </main>
+  )
+}

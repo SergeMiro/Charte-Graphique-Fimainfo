@@ -43,7 +43,7 @@ const THEMES = {
       '--primary': 'hsl(206, 100%, 17%)',
       '--background': 'hsl(229, 24%, 12%)',
       '--foreground': 'hsl(0, 0%, 100%)',
-      '--accent': 'hsl(207, 100%, 27%)',
+      '--accent': 'hsl(300, 2%, 78%)',
       '--muted': 'hsl(236, 11%, 27%)'
     }
   },

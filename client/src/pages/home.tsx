@@ -7,6 +7,7 @@ import {
   UserIcon,
   Cog6ToothIcon
 } from '@heroicons/react/24/outline'
+import logoPath from '@assets/icon_fimainfo_1752137499908.png'
 
 const THEMES = {
   sam: {
@@ -55,12 +56,14 @@ export default function Home() {
   }, [theme])
 
   const ThemeSelect = () => (
-    <div className="flex gap-4">
+    <div className="flex flex-col gap-2">
       {Object.entries(THEMES).map(([key, t]) => (
         <Button
           key={key}
-          variant={theme === key ? 'default' : 'secondary'}
+          variant={theme === key ? 'default' : 'outline'}
+          size="sm"
           onClick={() => setTheme(key as ThemeKey)}
+          className="text-xs px-3 py-1 h-8 justify-start"
         >
           {t.label}
         </Button>
@@ -102,8 +105,16 @@ export default function Home() {
   return (
     <main className="px-4 md:px-10 max-w-5xl mx-auto font-primary transition-colors">
       <header className="py-6 flex items-center justify-between">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider">
-          FIMA1NFO
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider flex items-center">
+          FIM
+          <span className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-md mx-1 shadow-sm border">
+            <img 
+              src={logoPath} 
+              alt="FIMA1NFO Logo" 
+              className="w-6 h-6 md:w-7 md:h-7 object-contain"
+            />
+          </span>
+          1NFO
         </h1>
         <ThemeSelect />
       </header>

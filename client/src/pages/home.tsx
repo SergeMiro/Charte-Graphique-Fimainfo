@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
 import { Loader2, CheckCircle, XCircle } from 'lucide-react'
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import {
   InformationCircleIcon,
   HomeIcon,
@@ -33,10 +34,10 @@ const THEMES = {
   dark: {
     label: 'Business Dark',
     vars: {
-      '--primary': 'hsl(195, 16%, 43%)',
+      '--primary': 'hsl(206, 100%, 17%)',
       '--background': 'hsl(229, 24%, 12%)',
       '--foreground': 'hsl(0, 0%, 100%)',
-      '--accent': 'hsl(210, 11%, 31%)',
+      '--accent': 'hsl(207, 100%, 27%)',
       '--muted': 'hsl(236, 11%, 27%)'
     }
   },
@@ -46,7 +47,7 @@ const THEMES = {
       '--primary': 'hsl(210, 11%, 71%)',
       '--background': 'hsl(210, 17%, 98%)',
       '--foreground': 'hsl(210, 10%, 23%)',
-      '--accent': 'hsl(210, 16%, 82%)',
+      '--accent': 'hsl(196, 50%, 74%)',
       '--muted': 'hsl(210, 14%, 89%)'
     }
   }
@@ -191,43 +192,43 @@ export default function Home() {
 
       <Section title="Icônes Heroicons">
         <div className="flex flex-wrap gap-4 items-center">
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <InformationCircleIcon className="w-6 h-6" />
             <span className="text-xs">Info</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <HomeIcon className="w-6 h-6" />
             <span className="text-xs">Home</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <UserIcon className="w-6 h-6" />
             <span className="text-xs">User</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <Cog6ToothIcon className="w-6 h-6" />
             <span className="text-xs">Settings</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <BellIcon className="w-6 h-6" />
             <span className="text-xs">Bell</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <EnvelopeIcon className="w-6 h-6" />
             <span className="text-xs">Mail</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <HeartIcon className="w-6 h-6" />
             <span className="text-xs">Heart</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <MagnifyingGlassIcon className="w-6 h-6" />
             <span className="text-xs">Search</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <ShoppingCartIcon className="w-6 h-6" />
             <span className="text-xs">Cart</span>
           </div>
-          <div className="flex flex-col items-center gap-1 text-foreground">
+          <div className="flex flex-col items-center gap-1 text-foreground hover:text-gray-400 transition-colors">
             <StarIcon className="w-6 h-6" />
             <span className="text-xs">Star</span>
           </div>
@@ -260,46 +261,81 @@ export default function Home() {
       <Section title="Responsive & Breakpoints">
         <div className="space-y-4">
           <div className="flex gap-2 items-center">
-            <Button
-              size="sm"
-              variant={activeDevice === 'mobile' ? 'default' : 'outline'}
-              onClick={() => setActiveDevice('mobile')}
-              className="text-xs px-3 py-1 h-8"
-            >
-              <DevicePhoneMobileIcon className="w-4 h-4" />
-            </Button>
-            <Button
-              size="sm"
-              variant={activeDevice === 'tablet' ? 'default' : 'outline'}
-              onClick={() => setActiveDevice('tablet')}
-              className="text-xs px-3 py-1 h-8"
-            >
-              <DeviceTabletIcon className="w-4 h-4" />
-            </Button>
-            <Button
-              size="sm"
-              variant={activeDevice === 'laptop' ? 'default' : 'outline'}
-              onClick={() => setActiveDevice('laptop')}
-              className="text-xs px-3 py-1 h-8"
-            >
-              <ComputerDesktopIcon className="w-4 h-4" />
-            </Button>
-            <Button
-              size="sm"
-              variant={activeDevice === 'desktop' ? 'default' : 'outline'}
-              onClick={() => setActiveDevice('desktop')}
-              className="text-xs px-3 py-1 h-8"
-            >
-              <ComputerDesktopIcon className="w-4 h-4" />
-            </Button>
-            <Button
-              size="sm"
-              variant={activeDevice === 'tv' ? 'default' : 'outline'}
-              onClick={() => setActiveDevice('tv')}
-              className="text-xs px-3 py-1 h-8"
-            >
-              <TvIcon className="w-4 h-4" />
-            </Button>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="sm"
+                  variant={activeDevice === 'mobile' ? 'default' : 'outline'}
+                  onClick={() => setActiveDevice('mobile')}
+                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                >
+                  <DevicePhoneMobileIcon className="w-4 h-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Smartphone</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="sm"
+                  variant={activeDevice === 'tablet' ? 'default' : 'outline'}
+                  onClick={() => setActiveDevice('tablet')}
+                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                >
+                  <DeviceTabletIcon className="w-4 h-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Tablette</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="sm"
+                  variant={activeDevice === 'laptop' ? 'default' : 'outline'}
+                  onClick={() => setActiveDevice('laptop')}
+                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                >
+                  <ComputerDesktopIcon className="w-4 h-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Ordinateur portable</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="sm"
+                  variant={activeDevice === 'desktop' ? 'default' : 'outline'}
+                  onClick={() => setActiveDevice('desktop')}
+                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                >
+                  <ComputerDesktopIcon className="w-4 h-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Ordinateur de bureau</p>
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  size="sm"
+                  variant={activeDevice === 'tv' ? 'default' : 'outline'}
+                  onClick={() => setActiveDevice('tv')}
+                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                >
+                  <TvIcon className="w-4 h-4" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>
+                <p>Télévision</p>
+              </TooltipContent>
+            </Tooltip>
           </div>
           
           <div className={`

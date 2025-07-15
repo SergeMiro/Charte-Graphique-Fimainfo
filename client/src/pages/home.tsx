@@ -30,10 +30,10 @@ const THEMES = {
   sam: {
     label: 'SAM',
     vars: {
-      '--primary': 'hsl(210, 6%, 21%)',
+      '--primary': 'hsl(216, 79%, 16%)',
       '--background': 'hsl(0, 0%, 100%)',
       '--foreground': 'hsl(210, 6%, 21%)',
-      '--accent': 'hsl(217, 91%, 60%)',
+      '--accent': 'hsl(215, 96%, 32%)',
       '--muted': 'hsl(0, 0%, 87%)'
     }
   },

@@ -101,3 +101,13 @@
 .btn-success:hover {
   background-color: hsl(142, 76%, 32%);
 }
+
+/* SAM theme button hover styles */
+button:hover {
+  background-color: var(--accent) !important;
+  color: white !important;
+}
+
+button:hover svg {
+  color: white !important;
+}

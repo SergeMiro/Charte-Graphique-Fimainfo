@@ -256,15 +256,15 @@ export default function Home() {
               className="color-palette-overlay"
               onClick={() => setShowColorPicker(false)}
             />
-            <div className="absolute top-full left-0 mt-1 w-80 bg-background border border-border rounded-lg color-palette-dropdown p-3 z-50">
+            <div className="absolute top-full right-0 mt-1 bg-background border border-border rounded-lg color-palette-dropdown p-3 z-50 w-auto">
               <div className="mb-3">
                 <h3 className="text-sm font-medium text-foreground">Color Palettes</h3>
               </div>
-              <div className="grid grid-cols-1 gap-1 max-h-64 overflow-y-auto">
+              <div className="flex flex-wrap justify-center gap-1 max-h-64 overflow-y-auto overflow-x-hidden">
                 {COLOR_PALETTES.map((palette, index) => (
                   <div
                     key={index}
-                    className="cursor-pointer group color-palette-item p-2 rounded-md hover:bg-muted/50 transition-colors"
+                    className="cursor-pointer group color-palette-item p-1 rounded-md hover:bg-muted/50 transition-colors"
                     onClick={() => applyCustomPalette(palette)}
                   >
                     <div className="flex items-center justify-between">
@@ -278,10 +278,6 @@ export default function Home() {
                           />
                         ))}
                       </div>
-                      {/* Palette name */}
-                      <p className="text-xs font-medium text-foreground group-hover:text-accent transition-colors ml-3">
-                        {palette.name}
-                      </p>
                     </div>
                   </div>
                 ))}

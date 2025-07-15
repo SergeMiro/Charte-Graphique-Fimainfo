@@ -13,7 +13,7 @@ const THEMES = {
   sam: {
     label: 'SAM Light',
     vars: {
-      '--primary': 'hsl(210, 11%, 71%)',
+      '--primary': 'hsl(216, 79%, 16%)',
       '--background': 'hsl(0, 0%, 98%)',
       '--foreground': 'hsl(206, 13%, 27%)',
       '--accent': 'hsl(217, 91%, 60%)',
@@ -75,7 +75,7 @@ export default function Home() {
   ]
 
   const colorPalette = [
-    { name: 'Primary', var: '--primary', hex: currentTheme === 'sam' ? '#c5c3c6' : currentTheme === 'dark' ? '#002855' : '#c5c3c6' },
+    { name: 'Primary', var: '--primary', hex: currentTheme === 'sam' ? '#091E42' : currentTheme === 'dark' ? '#002855' : '#c5c3c6' },
     { name: 'Background', var: '--background', hex: currentTheme === 'sam' ? '#fafafa' : currentTheme === 'dark' ? '#1a1d23' : '#f8f9fb' },
     { name: 'Foreground', var: '--foreground', hex: currentTheme === 'sam' ? '#343a40' : currentTheme === 'dark' ? '#ffffff' : '#3a3e42' },
     { name: 'Accent', var: '--accent', hex: currentTheme === 'sam' ? '#4f9cf9' : '#c5c3c6' },

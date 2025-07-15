@@ -148,6 +148,50 @@ const COLOR_PALETTES = [
       '--accent': 'hsl(33, 82%, 53%)',
       '--muted': 'hsl(40, 60%, 85%)'
     }
+  },
+  {
+    name: 'Berry Bliss',
+    colors: ['#8B008B', '#DA70D6', '#FFB6C1', '#FFF0F5'],
+    theme: {
+      '--primary': 'hsl(300, 100%, 27%)',
+      '--background': 'hsl(340, 100%, 97%)',
+      '--foreground': 'hsl(310, 90%, 20%)',
+      '--accent': 'hsl(302, 71%, 65%)',
+      '--muted': 'hsl(320, 50%, 85%)'
+    }
+  },
+  {
+    name: 'Sky Blue',
+    colors: ['#4682B4', '#87CEEB', '#E0F6FF', '#F0F8FF'],
+    theme: {
+      '--primary': 'hsl(207, 44%, 49%)',
+      '--background': 'hsl(208, 100%, 97%)',
+      '--foreground': 'hsl(210, 40%, 20%)',
+      '--accent': 'hsl(203, 77%, 72%)',
+      '--muted': 'hsl(200, 30%, 85%)'
+    }
+  },
+  {
+    name: 'Golden Hour',
+    colors: ['#B8860B', '#FFD700', '#FFFFE0', '#FFFACD'],
+    theme: {
+      '--primary': 'hsl(43, 89%, 38%)',
+      '--background': 'hsl(60, 100%, 94%)',
+      '--foreground': 'hsl(45, 85%, 25%)',
+      '--accent': 'hsl(51, 100%, 50%)',
+      '--muted': 'hsl(55, 45%, 80%)'
+    }
+  },
+  {
+    name: 'Rose Garden',
+    colors: ['#CD5C5C', '#F08080', '#FFE4E1', '#FFF5EE'],
+    theme: {
+      '--primary': 'hsl(0, 53%, 58%)',
+      '--background': 'hsl(25, 100%, 96%)',
+      '--foreground': 'hsl(5, 50%, 25%)',
+      '--accent': 'hsl(0, 79%, 72%)',
+      '--muted': 'hsl(15, 40%, 85%)'
+    }
   }
 ]
 
@@ -212,31 +256,32 @@ export default function Home() {
               className="color-palette-overlay"
               onClick={() => setShowColorPicker(false)}
             />
-            <div className="absolute top-full left-0 mt-1 w-80 bg-background border border-border rounded-lg color-palette-dropdown p-4 z-50">
-              <div className="grid grid-cols-2 gap-3">
+            <div className="absolute top-full left-0 mt-1 w-80 bg-background border border-border rounded-lg color-palette-dropdown p-3 z-50">
+              <div className="mb-3">
+                <h3 className="text-sm font-medium text-foreground">Color Palettes</h3>
+              </div>
+              <div className="grid grid-cols-1 gap-1 max-h-64 overflow-y-auto">
                 {COLOR_PALETTES.map((palette, index) => (
                   <div
                     key={index}
-                    className="cursor-pointer group color-palette-item"
+                    className="cursor-pointer group color-palette-item p-2 rounded-md hover:bg-muted/50 transition-colors"
                     onClick={() => applyCustomPalette(palette)}
                   >
-                    <div className="space-y-1">
-                      {/* Color bars */}
-                      <div className="h-16 rounded-lg overflow-hidden grid grid-rows-4 gap-0.5 border border-border/20">
+                    <div className="flex items-center justify-between">
+                      {/* Color circles */}
+                      <div className="flex gap-1.5">
                         {palette.colors.map((color, colorIndex) => (
                           <div
                             key={colorIndex}
-                            className="w-full"
+                            className="w-5 h-5 rounded-full border border-border/30 color-circle"
                             style={{ backgroundColor: color }}
                           />
                         ))}
                       </div>
                       {/* Palette name */}
-                      <div className="text-center">
-                        <p className="text-xs font-medium text-foreground group-hover:text-accent transition-colors">
-                          {palette.name}
-                        </p>
-                      </div>
+                      <p className="text-xs font-medium text-foreground group-hover:text-accent transition-colors ml-3">
+                        {palette.name}
+                      </p>
                     </div>
                   </div>
                 ))}

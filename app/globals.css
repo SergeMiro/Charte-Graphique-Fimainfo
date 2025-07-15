@@ -62,11 +62,21 @@ body {
 
 /* Override theme colors when specific themes are applied */
 .theme-sam {
-  --primary: hsl(210, 11%, 71%);
+  --primary: hsl(216, 79%, 16%);
   --background: hsl(0, 0%, 98%);
   --foreground: hsl(206, 13%, 27%);
-  --accent: hsl(217, 91%, 60%);
+  --accent: hsl(215, 96%, 32%);
   --muted: hsl(0, 0%, 87%);
+}
+
+/* SAM theme button hover styles */
+.theme-sam button:hover {
+  background-color: hsl(215, 96%, 32%) !important;
+  color: white !important;
+}
+
+.theme-sam button:hover svg {
+  color: white !important;
 }
 
 .theme-dark {

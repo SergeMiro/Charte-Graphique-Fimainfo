@@ -59,33 +59,204 @@ const THEMES = {
   }
 } as const
 
+// Custom color palettes inspired by the screenshots
+const COLOR_PALETTES = [
+  {
+    name: 'Ocean Breeze',
+    colors: ['#5F8A8B', '#A9C9A4', '#C7D6D5', '#E8F5E8'],
+    theme: {
+      '--primary': 'hsl(183, 20%, 45%)',
+      '--background': 'hsl(120, 20%, 96%)',
+      '--foreground': 'hsl(180, 15%, 20%)',
+      '--accent': 'hsl(115, 25%, 65%)',
+      '--muted': 'hsl(150, 15%, 85%)'
+    }
+  },
+  {
+    name: 'Forest Earth',
+    colors: ['#4A5D23', '#8B956D', '#C9CBA3', '#F4F3D6'],
+    theme: {
+      '--primary': 'hsl(75, 45%, 25%)',
+      '--background': 'hsl(60, 35%, 94%)',
+      '--foreground': 'hsl(70, 40%, 15%)',
+      '--accent': 'hsl(80, 25%, 55%)',
+      '--muted': 'hsl(65, 20%, 80%)'
+    }
+  },
+  {
+    name: 'Sunset Warmth',
+    colors: ['#8B4513', '#CD853F', '#F4A460', '#FFF8DC'],
+    theme: {
+      '--primary': 'hsl(25, 75%, 32%)',
+      '--background': 'hsl(55, 100%, 95%)',
+      '--foreground': 'hsl(30, 70%, 20%)',
+      '--accent': 'hsl(28, 87%, 67%)',
+      '--muted': 'hsl(40, 60%, 85%)'
+    }
+  },
+  {
+    name: 'Purple Dreams',
+    colors: ['#4B0082', '#8A2BE2', '#DA70D6', '#E6E6FA'],
+    theme: {
+      '--primary': 'hsl(275, 100%, 25%)',
+      '--background': 'hsl(240, 67%, 94%)',
+      '--foreground': 'hsl(280, 90%, 15%)',
+      '--accent': 'hsl(282, 71%, 65%)',
+      '--muted': 'hsl(250, 40%, 85%)'
+    }
+  },
+  {
+    name: 'Mint Fresh',
+    colors: ['#2E8B57', '#90EE90', '#98FB98', '#F0FFF0'],
+    theme: {
+      '--primary': 'hsl(146, 50%, 36%)',
+      '--background': 'hsl(120, 100%, 97%)',
+      '--foreground': 'hsl(150, 45%, 20%)',
+      '--accent': 'hsl(120, 73%, 75%)',
+      '--muted': 'hsl(135, 25%, 85%)'
+    }
+  },
+  {
+    name: 'Navy Steel',
+    colors: ['#2F4F4F', '#5F9EA0', '#B0C4DE', '#F0F8FF'],
+    theme: {
+      '--primary': 'hsl(180, 25%, 25%)',
+      '--background': 'hsl(208, 100%, 97%)',
+      '--foreground': 'hsl(185, 20%, 15%)',
+      '--accent': 'hsl(182, 25%, 63%)',
+      '--muted': 'hsl(190, 30%, 80%)'
+    }
+  },
+  {
+    name: 'Coral Reef',
+    colors: ['#FF7F50', '#FFA07A', '#FFB6C1', '#FFF0F5'],
+    theme: {
+      '--primary': 'hsl(16, 100%, 66%)',
+      '--background': 'hsl(340, 100%, 97%)',
+      '--foreground': 'hsl(20, 80%, 25%)',
+      '--accent': 'hsl(17, 100%, 74%)',
+      '--muted': 'hsl(350, 50%, 88%)'
+    }
+  },
+  {
+    name: 'Autumn Leaves',
+    colors: ['#8B4513', '#D2691E', '#F4A460', '#FFEFD5'],
+    theme: {
+      '--primary': 'hsl(25, 75%, 32%)',
+      '--background': 'hsl(36, 100%, 93%)',
+      '--foreground': 'hsl(30, 70%, 20%)',
+      '--accent': 'hsl(33, 82%, 53%)',
+      '--muted': 'hsl(40, 60%, 85%)'
+    }
+  }
+]
+
 type ThemeKey = keyof typeof THEMES
+type CustomPalette = typeof COLOR_PALETTES[0]
 
 export default function Home() {
   const [theme, setTheme] = useState<ThemeKey>('sam')
   const [activeDevice, setActiveDevice] = useState<'mobile' | 'tablet' | 'laptop' | 'desktop' | 'tv'>('mobile')
+  const [showColorPicker, setShowColorPicker] = useState(false)
+  const [customTheme, setCustomTheme] = useState<CustomPalette | null>(null)
 
   useEffect(() => {
     const root = document.documentElement
-    const vars = THEMES[theme].vars
+    const vars = customTheme ? customTheme.theme : THEMES[theme].vars
     Object.entries(vars).forEach(([key, value]) => {
       root.style.setProperty(key, value)
     })
-  }, [theme])
+  }, [theme, customTheme])
+
+  const applyCustomPalette = (palette: CustomPalette) => {
+    setCustomTheme(palette)
+    setShowColorPicker(false)
+  }
+
+  const resetToStandardTheme = (themeKey: ThemeKey) => {
+    setCustomTheme(null)
+    setTheme(themeKey)
+  }
 
   const ThemeSelect = () => (
     <div className="flex flex-col gap-2">
       {Object.entries(THEMES).map(([key, t]) => (
         <Button
           key={key}
-          variant={theme === key ? 'default' : 'outline'}
+          variant={theme === key && !customTheme ? 'default' : 'outline'}
           size="sm"
-          onClick={() => setTheme(key as ThemeKey)}
+          onClick={() => resetToStandardTheme(key as ThemeKey)}
           className="text-xs px-3 py-1 h-8 justify-start"
         >
           {t.label}
         </Button>
       ))}
+      
+      {/* My Colors Button */}
+      <div className="relative">
+        <Button
+          variant={customTheme ? 'default' : 'outline'}
+          size="sm"
+          onClick={() => setShowColorPicker(!showColorPicker)}
+          className="text-xs px-3 py-1 h-8 justify-start w-full"
+        >
+          My colors
+          <ChevronDownIcon className="w-3 h-3 ml-auto" />
+        </Button>
+        
+        {/* Color Palette Dropdown */}
+        {showColorPicker && (
+          <>
+            {/* Overlay to close on outside click */}
+            <div 
+              className="color-palette-overlay"
+              onClick={() => setShowColorPicker(false)}
+            />
+            <div className="absolute top-full left-0 mt-1 w-80 bg-background border border-border rounded-lg color-palette-dropdown p-4 z-50">
+              <div className="grid grid-cols-2 gap-3">
+                {COLOR_PALETTES.map((palette, index) => (
+                  <div
+                    key={index}
+                    className="cursor-pointer group color-palette-item"
+                    onClick={() => applyCustomPalette(palette)}
+                  >
+                    <div className="space-y-1">
+                      {/* Color bars */}
+                      <div className="h-16 rounded-lg overflow-hidden grid grid-rows-4 gap-0.5 border border-border/20">
+                        {palette.colors.map((color, colorIndex) => (
+                          <div
+                            key={colorIndex}
+                            className="w-full"
+                            style={{ backgroundColor: color }}
+                          />
+                        ))}
+                      </div>
+                      {/* Palette name */}
+                      <div className="text-center">
+                        <p className="text-xs font-medium text-foreground group-hover:text-accent transition-colors">
+                          {palette.name}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Close button */}
+              <div className="flex justify-end mt-3 pt-3 border-t border-border">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={() => setShowColorPicker(false)}
+                  className="text-xs px-3 py-1 h-6"
+                >
+                  Close
+                </Button>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   )
 
@@ -97,9 +268,9 @@ export default function Home() {
     cssVar: string
   }) => {
     const getHexColor = (cssVar: string) => {
-      const currentTheme = THEMES[theme]
+      const currentTheme = customTheme ? customTheme.theme : THEMES[theme].vars
       const varName = cssVar.replace('--', '')
-      const hslValue = currentTheme.vars[`--${varName}` as keyof typeof currentTheme.vars]
+      const hslValue = currentTheme[`--${varName}` as keyof typeof currentTheme]
       
       if (!hslValue) return '#000000'
       

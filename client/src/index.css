@@ -111,3 +111,24 @@ button:hover {
 button:hover svg {
   color: white !important;
 }
+
+/* Color palette dropdown styling */
+.color-palette-dropdown {
+  backdrop-filter: blur(8px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.color-palette-item:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Close dropdown when clicking outside */
+.color-palette-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+}

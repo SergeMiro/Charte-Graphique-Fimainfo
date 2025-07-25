@@ -24,16 +24,10 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "./client/src/*"
       ],
-      "@/components/*": [
-        "./components/*"
-      ],
-      "@/lib/*": [
-        "./lib/*"
-      ],
-      "@/app/*": [
-        "./app/*"
+      "@shared/*": [
+        "./shared/*"
       ],
       "@assets/*": [
         "./attached_assets/*"

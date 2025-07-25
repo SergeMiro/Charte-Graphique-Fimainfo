@@ -30,31 +30,34 @@ const THEMES = {
   sam: {
     label: 'SAM',
     vars: {
-      '--primary': 'hsl(216, 79%, 16%)',
-      '--background': 'hsl(0, 0%, 100%)',
-      '--foreground': 'hsl(210, 6%, 21%)',
-      '--accent': 'hsl(215, 96%, 32%)',
-      '--muted': 'hsl(0, 0%, 87%)'
+      '--primary': '#0052CC',
+      '--secondary': '#172B4D',
+      '--background': '#ffffff',
+      '--foreground': '#3a4a6b',
+      '--accent': '#1e40af',
+      '--muted': '#dedede'
     }
   },
   dark: {
     label: 'Business Dark',
     vars: {
-      '--primary': 'hsl(206, 100%, 17%)',
-      '--background': 'hsl(229, 24%, 12%)',
-      '--foreground': 'hsl(0, 0%, 100%)',
-      '--accent': 'hsl(300, 2%, 78%)',
-      '--muted': 'hsl(236, 11%, 27%)'
+      '--primary': '#003366',
+      '--secondary': '#004080',
+      '--background': '#1a2a3a',
+      '--foreground': '#ffffff',
+      '--accent': '#c0c0c0',
+      '--muted': '#3c4a5a'
     }
   },
   accent: {
     label: 'Accent Light',
     vars: {
-      '--primary': 'hsl(210, 11%, 71%)',
-      '--background': 'hsl(210, 17%, 98%)',
-      '--foreground': 'hsl(210, 10%, 23%)',
-      '--accent': 'hsl(300, 2%, 78%)',
-      '--muted': 'hsl(210, 14%, 89%)'
+      '--primary': '#b3c7d6',
+      '--secondary': '#c0d0e0',
+      '--background': '#d6e4f0',
+      '--foreground': '#3a4a6b',
+      '--accent': '#c0c0c0',
+      '--muted': '#e0e8f0'
     }
   }
 } as const
@@ -65,132 +68,144 @@ const COLOR_PALETTES = [
     name: 'Ocean Breeze',
     colors: ['#5F8A8B', '#A9C9A4', '#C7D6D5', '#E8F5E8'],
     theme: {
-      '--primary': 'hsl(183, 20%, 45%)',
-      '--background': 'hsl(120, 20%, 96%)',
-      '--foreground': 'hsl(180, 15%, 20%)',
-      '--accent': 'hsl(115, 25%, 65%)',
-      '--muted': 'hsl(150, 15%, 85%)'
+      '--primary': '#5F8A8B',
+      '--secondary': '#7A9B9C',
+      '--background': '#E8F5E8',
+      '--foreground': '#2C4A4B',
+      '--accent': '#A9C9A4',
+      '--muted': '#C7D6D5'
     }
   },
   {
     name: 'Forest Earth',
     colors: ['#4A5D23', '#8B956D', '#C9CBA3', '#F4F3D6'],
     theme: {
-      '--primary': 'hsl(75, 45%, 25%)',
-      '--background': 'hsl(60, 35%, 94%)',
-      '--foreground': 'hsl(70, 40%, 15%)',
-      '--accent': 'hsl(80, 25%, 55%)',
-      '--muted': 'hsl(65, 20%, 80%)'
+      '--primary': '#4A5D23',
+      '--secondary': '#6B7A3A',
+      '--background': '#F4F3D6',
+      '--foreground': '#2A3515',
+      '--accent': '#8B956D',
+      '--muted': '#C9CBA3'
     }
   },
   {
     name: 'Sunset Warmth',
     colors: ['#8B4513', '#CD853F', '#F4A460', '#FFF8DC'],
     theme: {
-      '--primary': 'hsl(25, 75%, 32%)',
-      '--background': 'hsl(55, 100%, 95%)',
-      '--foreground': 'hsl(30, 70%, 20%)',
-      '--accent': 'hsl(28, 87%, 67%)',
-      '--muted': 'hsl(40, 60%, 85%)'
+      '--primary': '#8B4513',
+      '--secondary': '#A0571F',
+      '--background': '#FFF8DC',
+      '--foreground': '#4A2409',
+      '--accent': '#CD853F',
+      '--muted': '#F4A460'
     }
   },
   {
     name: 'Purple Dreams',
     colors: ['#4B0082', '#8A2BE2', '#DA70D6', '#E6E6FA'],
     theme: {
-      '--primary': 'hsl(275, 100%, 25%)',
-      '--background': 'hsl(240, 67%, 94%)',
-      '--foreground': 'hsl(280, 90%, 15%)',
-      '--accent': 'hsl(282, 71%, 65%)',
-      '--muted': 'hsl(250, 40%, 85%)'
+      '--primary': '#4B0082',
+      '--secondary': '#6A1BA2',
+      '--background': '#E6E6FA',
+      '--foreground': '#2A0049',
+      '--accent': '#8A2BE2',
+      '--muted': '#DA70D6'
     }
   },
   {
     name: 'Mint Fresh',
     colors: ['#2E8B57', '#90EE90', '#98FB98', '#F0FFF0'],
     theme: {
-      '--primary': 'hsl(146, 50%, 36%)',
-      '--background': 'hsl(120, 100%, 97%)',
-      '--foreground': 'hsl(150, 45%, 20%)',
-      '--accent': 'hsl(120, 73%, 75%)',
-      '--muted': 'hsl(135, 25%, 85%)'
+      '--primary': '#2E8B57',
+      '--secondary': '#4A9B6E',
+      '--background': '#F0FFF0',
+      '--foreground': '#1A5233',
+      '--accent': '#90EE90',
+      '--muted': '#98FB98'
     }
   },
   {
     name: 'Navy Steel',
     colors: ['#2F4F4F', '#5F9EA0', '#B0C4DE', '#F0F8FF'],
     theme: {
-      '--primary': 'hsl(180, 25%, 25%)',
-      '--background': 'hsl(208, 100%, 97%)',
-      '--foreground': 'hsl(185, 20%, 15%)',
-      '--accent': 'hsl(182, 25%, 63%)',
-      '--muted': 'hsl(190, 30%, 80%)'
+      '--primary': '#2F4F4F',
+      '--secondary': '#456565',
+      '--background': '#F0F8FF',
+      '--foreground': '#1A2E2E',
+      '--accent': '#5F9EA0',
+      '--muted': '#B0C4DE'
     }
   },
   {
     name: 'Coral Reef',
     colors: ['#FF7F50', '#FFA07A', '#FFB6C1', '#FFF0F5'],
     theme: {
-      '--primary': 'hsl(16, 100%, 66%)',
-      '--background': 'hsl(340, 100%, 97%)',
-      '--foreground': 'hsl(20, 80%, 25%)',
-      '--accent': 'hsl(17, 100%, 74%)',
-      '--muted': 'hsl(350, 50%, 88%)'
+      '--primary': '#FF7F50',
+      '--secondary': '#FF9570',
+      '--background': '#FFF0F5',
+      '--foreground': '#8B4513',
+      '--accent': '#FFA07A',
+      '--muted': '#FFB6C1'
     }
   },
   {
     name: 'Autumn Leaves',
     colors: ['#8B4513', '#D2691E', '#F4A460', '#FFEFD5'],
     theme: {
-      '--primary': 'hsl(25, 75%, 32%)',
-      '--background': 'hsl(36, 100%, 93%)',
-      '--foreground': 'hsl(30, 70%, 20%)',
-      '--accent': 'hsl(33, 82%, 53%)',
-      '--muted': 'hsl(40, 60%, 85%)'
+      '--primary': '#8B4513',
+      '--secondary': '#A0571F',
+      '--background': '#FFEFD5',
+      '--foreground': '#4A2409',
+      '--accent': '#D2691E',
+      '--muted': '#F4A460'
     }
   },
   {
     name: 'Berry Bliss',
     colors: ['#8B008B', '#DA70D6', '#FFB6C1', '#FFF0F5'],
     theme: {
-      '--primary': 'hsl(300, 100%, 27%)',
-      '--background': 'hsl(340, 100%, 97%)',
-      '--foreground': 'hsl(310, 90%, 20%)',
-      '--accent': 'hsl(302, 71%, 65%)',
-      '--muted': 'hsl(320, 50%, 85%)'
+      '--primary': '#8B008B',
+      '--secondary': '#A020A0',
+      '--background': '#FFF0F5',
+      '--foreground': '#4A004A',
+      '--accent': '#DA70D6',
+      '--muted': '#FFB6C1'
     }
   },
   {
     name: 'Sky Blue',
     colors: ['#4682B4', '#87CEEB', '#E0F6FF', '#F0F8FF'],
     theme: {
-      '--primary': 'hsl(207, 44%, 49%)',
-      '--background': 'hsl(208, 100%, 97%)',
-      '--foreground': 'hsl(210, 40%, 20%)',
-      '--accent': 'hsl(203, 77%, 72%)',
-      '--muted': 'hsl(200, 30%, 85%)'
+      '--primary': '#4682B4',
+      '--secondary': '#5A96C4',
+      '--background': '#F0F8FF',
+      '--foreground': '#2A4A6A',
+      '--accent': '#87CEEB',
+      '--muted': '#E0F6FF'
     }
   },
   {
     name: 'Golden Hour',
     colors: ['#B8860B', '#FFD700', '#FFFFE0', '#FFFACD'],
     theme: {
-      '--primary': 'hsl(43, 89%, 38%)',
-      '--background': 'hsl(60, 100%, 94%)',
-      '--foreground': 'hsl(45, 85%, 25%)',
-      '--accent': 'hsl(51, 100%, 50%)',
-      '--muted': 'hsl(55, 45%, 80%)'
+      '--primary': '#B8860B',
+      '--secondary': '#C8960B',
+      '--background': '#FFFACD',
+      '--foreground': '#6B4E06',
+      '--accent': '#FFD700',
+      '--muted': '#FFFFE0'
     }
   },
   {
     name: 'Rose Garden',
     colors: ['#CD5C5C', '#F08080', '#FFE4E1', '#FFF5EE'],
     theme: {
-      '--primary': 'hsl(0, 53%, 58%)',
-      '--background': 'hsl(25, 100%, 96%)',
-      '--foreground': 'hsl(5, 50%, 25%)',
-      '--accent': 'hsl(0, 79%, 72%)',
-      '--muted': 'hsl(15, 40%, 85%)'
+      '--primary': '#CD5C5C',
+      '--secondary': '#D76C6C',
+      '--background': '#FFF5EE',
+      '--foreground': '#7A3434',
+      '--accent': '#F08080',
+      '--muted': '#FFE4E1'
     }
   }
 ]
@@ -311,44 +326,9 @@ export default function Home() {
     const getHexColor = (cssVar: string) => {
       const currentTheme = customTheme ? customTheme.theme : THEMES[theme].vars
       const varName = cssVar.replace('--', '')
-      const hslValue = currentTheme[`--${varName}` as keyof typeof currentTheme]
+      const hexValue = currentTheme[`--${varName}` as keyof typeof currentTheme]
       
-      if (!hslValue) return '#000000'
-      
-      // Convert HSL to HEX
-      const hslMatch = hslValue.match(/hsl\((\d+),\s*(\d+)%,\s*(\d+)%\)/)
-      if (!hslMatch) return '#000000'
-      
-      const h = parseInt(hslMatch[1]) / 360
-      const s = parseInt(hslMatch[2]) / 100
-      const l = parseInt(hslMatch[3]) / 100
-      
-      const hue2rgb = (p: number, q: number, t: number) => {
-        if (t < 0) t += 1
-        if (t > 1) t -= 1
-        if (t < 1/6) return p + (q - p) * 6 * t
-        if (t < 1/2) return q
-        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6
-        return p
-      }
-      
-      let r, g, b
-      if (s === 0) {
-        r = g = b = l
-      } else {
-        const q = l < 0.5 ? l * (1 + s) : l + s - l * s
-        const p = 2 * l - q
-        r = hue2rgb(p, q, h + 1/3)
-        g = hue2rgb(p, q, h)
-        b = hue2rgb(p, q, h - 1/3)
-      }
-      
-      const toHex = (c: number) => {
-        const hex = Math.round(c * 255).toString(16)
-        return hex.length === 1 ? '0' + hex : hex
-      }
-      
-      return `#${toHex(r)}${toHex(g)}${toHex(b)}`
+      return hexValue || '#000000'
     }
     
     return (
@@ -384,9 +364,9 @@ export default function Home() {
         <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider flex items-center">
           FIM
           <span className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-md mx-1 shadow-sm border">
-            <img 
-              src={logoPath} 
-              alt="FIMA1NFO Logo" 
+            <img
+              src={typeof logoPath === 'string' ? logoPath : logoPath.src}
+              alt="FIMA1NFO Logo"
               className="w-6 h-6 md:w-7 md:h-7 object-contain"
             />
           </span>
@@ -425,8 +405,9 @@ export default function Home() {
       </Section>
 
       <Section title="Palette de couleurs – thème actuel">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           <ColorSwatch name="Primary" cssVar="--primary" />
+          <ColorSwatch name="Secondary" cssVar="--secondary" />
           <ColorSwatch name="Background" cssVar="--background" />
           <ColorSwatch name="Foreground" cssVar="--foreground" />
           <ColorSwatch name="Accent" cssVar="--accent" />

@@ -13,31 +13,34 @@ const THEMES = {
   sam: {
     label: 'SAM Light',
     vars: {
-      '--primary': 'hsl(216, 79%, 16%)',
-      '--background': 'hsl(0, 0%, 98%)',
-      '--foreground': 'hsl(206, 13%, 27%)',
-      '--accent': 'hsl(215, 96%, 32%)',
-      '--muted': 'hsl(0, 0%, 87%)'
+      '--primary': '#0052CC',
+      '--secondary': '#172B4D',
+      '--background': '#fafafa',
+      '--foreground': '#3a4a6b',
+      '--accent': '#54a0ff',
+      '--muted': '#dedede'
     }
   },
   dark: {
     label: 'Business Dark',
     vars: {
-      '--primary': 'hsl(206, 100%, 17%)',
-      '--background': 'hsl(229, 24%, 12%)',
-      '--foreground': 'hsl(0, 0%, 100%)',
-      '--accent': 'hsl(300, 2%, 78%)',
-      '--muted': 'hsl(236, 11%, 27%)'
+      '--primary': '#003366',
+      '--secondary': '#004080',
+      '--background': '#1a2a3a',
+      '--foreground': '#ffffff',
+      '--accent': '#c0c0c0',
+      '--muted': '#3c4a5a'
     }
   },
   accent: {
     label: 'Accent Light',
     vars: {
-      '--primary': 'hsl(210, 11%, 71%)',
-      '--background': 'hsl(210, 17%, 98%)',
-      '--foreground': 'hsl(210, 10%, 23%)',
-      '--accent': 'hsl(300, 2%, 78%)',
-      '--muted': 'hsl(210, 14%, 89%)'
+      '--primary': '#b3c7d6',
+      '--secondary': '#c0d0e0',
+      '--background': '#d6e4f0',
+      '--foreground': '#3a4a6b',
+      '--accent': '#c0c0c0',
+      '--muted': '#e0e8f0'
     }
   }
 }
@@ -75,11 +78,12 @@ export default function Home() {
   ]
 
   const colorPalette = [
-    { name: 'Primary', var: '--primary', hex: currentTheme === 'sam' ? '#091E42' : currentTheme === 'dark' ? '#002855' : '#c5c3c6' },
-    { name: 'Background', var: '--background', hex: currentTheme === 'sam' ? '#fafafa' : currentTheme === 'dark' ? '#1a1d23' : '#f8f9fb' },
-    { name: 'Foreground', var: '--foreground', hex: currentTheme === 'sam' ? '#343a40' : currentTheme === 'dark' ? '#ffffff' : '#3a3e42' },
-    { name: 'Accent', var: '--accent', hex: currentTheme === 'sam' ? '#0747A6' : '#c5c3c6' },
-    { name: 'Muted', var: '--muted', hex: currentTheme === 'sam' ? '#dedede' : currentTheme === 'dark' ? '#404040' : '#e8eaed' }
+    { name: 'Primary', var: '--primary', hex: currentTheme === 'sam' ? '#0052CC' : currentTheme === 'dark' ? '#003366' : '#b3c7d6' },
+    { name: 'Secondary', var: '--secondary', hex: currentTheme === 'sam' ? '#172B4D' : currentTheme === 'dark' ? '#004080' : '#c0d0e0' },
+    { name: 'Background', var: '--background', hex: currentTheme === 'sam' ? '#fafafa' : currentTheme === 'dark' ? '#1a2a3a' : '#d6e4f0' },
+    { name: 'Foreground', var: '--foreground', hex: currentTheme === 'sam' ? '#3a4a6b' : currentTheme === 'dark' ? '#ffffff' : '#3a4a6b' },
+    { name: 'Accent', var: '--accent', hex: currentTheme === 'sam' ? '#54a0ff' : '#c0c0c0' },
+    { name: 'Muted', var: '--muted', hex: currentTheme === 'sam' ? '#dedede' : currentTheme === 'dark' ? '#3c4a5a' : '#e0e8f0' }
   ]
 
   return (
@@ -159,7 +163,7 @@ export default function Home() {
                   <div key={color.name} className="flex items-center gap-3">
                     <div
                       className="w-12 h-12 rounded-lg border border-border flex-shrink-0"
-                      style={{ backgroundColor: `hsl(var(${color.var}))` }}
+                      style={{ backgroundColor: color.hex }}
                     />
                     <div className="flex-1 min-w-0">
                       <p className="text-sm font-medium text-foreground">{color.name}</p>

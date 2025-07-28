@@ -34,206 +34,54 @@ const THEMES = {
       '--secondary': '#172B4D',
       '--background': '#ffffff',
       '--foreground': '#3a4a6b',
-      '--accent': '#1e40af',
-      '--muted': '#dedede'
+      '--error': '#FF3C38',
+      '--success': '#2BC016',
+      '--muted': '#EBECF0'
     }
   },
   dark: {
-    label: 'Business Dark',
+    label: 'Dark',
     vars: {
-      '--primary': '#003366',
-      '--secondary': '#004080',
+      '--primary': '#365984',
+      '--secondary': '#004b80',
       '--background': '#1a2a3a',
-      '--foreground': '#ffffff',
-      '--accent': '#c0c0c0',
+      '--foreground': '#f3f3f3',
+      '--error': '#a54543',
+      '--success': '#5b8d54',
       '--muted': '#3c4a5a'
     }
   },
   accent: {
-    label: 'Accent Light',
+    label: 'Light',
     vars: {
-      '--primary': '#b3c7d6',
-      '--secondary': '#c0d0e0',
-      '--background': '#d6e4f0',
-      '--foreground': '#3a4a6b',
-      '--accent': '#c0c0c0',
-      '--muted': '#e0e8f0'
+      '--primary': '#879eb9',
+      '--secondary': '#b0c1b9',
+      '--background': '#ffffff',
+      '--foreground': '#53617f',
+      '--error': '#e58d85',
+      '--success': '#7ac96f',
+      '--muted': '#ccd3db'
     }
   }
 } as const
 
-// Custom color palettes inspired by the screenshots
-const COLOR_PALETTES = [
-  {
-    name: 'Ocean Breeze',
-    colors: ['#5F8A8B', '#A9C9A4', '#C7D6D5', '#E8F5E8'],
-    theme: {
-      '--primary': '#5F8A8B',
-      '--secondary': '#7A9B9C',
-      '--background': '#E8F5E8',
-      '--foreground': '#2C4A4B',
-      '--accent': '#A9C9A4',
-      '--muted': '#C7D6D5'
-    }
-  },
-  {
-    name: 'Forest Earth',
-    colors: ['#4A5D23', '#8B956D', '#C9CBA3', '#F4F3D6'],
-    theme: {
-      '--primary': '#4A5D23',
-      '--secondary': '#6B7A3A',
-      '--background': '#F4F3D6',
-      '--foreground': '#2A3515',
-      '--accent': '#8B956D',
-      '--muted': '#C9CBA3'
-    }
-  },
-  {
-    name: 'Sunset Warmth',
-    colors: ['#8B4513', '#CD853F', '#F4A460', '#FFF8DC'],
-    theme: {
-      '--primary': '#8B4513',
-      '--secondary': '#A0571F',
-      '--background': '#FFF8DC',
-      '--foreground': '#4A2409',
-      '--accent': '#CD853F',
-      '--muted': '#F4A460'
-    }
-  },
-  {
-    name: 'Purple Dreams',
-    colors: ['#4B0082', '#8A2BE2', '#DA70D6', '#E6E6FA'],
-    theme: {
-      '--primary': '#4B0082',
-      '--secondary': '#6A1BA2',
-      '--background': '#E6E6FA',
-      '--foreground': '#2A0049',
-      '--accent': '#8A2BE2',
-      '--muted': '#DA70D6'
-    }
-  },
-  {
-    name: 'Mint Fresh',
-    colors: ['#2E8B57', '#90EE90', '#98FB98', '#F0FFF0'],
-    theme: {
-      '--primary': '#2E8B57',
-      '--secondary': '#4A9B6E',
-      '--background': '#F0FFF0',
-      '--foreground': '#1A5233',
-      '--accent': '#90EE90',
-      '--muted': '#98FB98'
-    }
-  },
-  {
-    name: 'Navy Steel',
-    colors: ['#2F4F4F', '#5F9EA0', '#B0C4DE', '#F0F8FF'],
-    theme: {
-      '--primary': '#2F4F4F',
-      '--secondary': '#456565',
-      '--background': '#F0F8FF',
-      '--foreground': '#1A2E2E',
-      '--accent': '#5F9EA0',
-      '--muted': '#B0C4DE'
-    }
-  },
-  {
-    name: 'Coral Reef',
-    colors: ['#FF7F50', '#FFA07A', '#FFB6C1', '#FFF0F5'],
-    theme: {
-      '--primary': '#FF7F50',
-      '--secondary': '#FF9570',
-      '--background': '#FFF0F5',
-      '--foreground': '#8B4513',
-      '--accent': '#FFA07A',
-      '--muted': '#FFB6C1'
-    }
-  },
-  {
-    name: 'Autumn Leaves',
-    colors: ['#8B4513', '#D2691E', '#F4A460', '#FFEFD5'],
-    theme: {
-      '--primary': '#8B4513',
-      '--secondary': '#A0571F',
-      '--background': '#FFEFD5',
-      '--foreground': '#4A2409',
-      '--accent': '#D2691E',
-      '--muted': '#F4A460'
-    }
-  },
-  {
-    name: 'Berry Bliss',
-    colors: ['#8B008B', '#DA70D6', '#FFB6C1', '#FFF0F5'],
-    theme: {
-      '--primary': '#8B008B',
-      '--secondary': '#A020A0',
-      '--background': '#FFF0F5',
-      '--foreground': '#4A004A',
-      '--accent': '#DA70D6',
-      '--muted': '#FFB6C1'
-    }
-  },
-  {
-    name: 'Sky Blue',
-    colors: ['#4682B4', '#87CEEB', '#E0F6FF', '#F0F8FF'],
-    theme: {
-      '--primary': '#4682B4',
-      '--secondary': '#5A96C4',
-      '--background': '#F0F8FF',
-      '--foreground': '#2A4A6A',
-      '--accent': '#87CEEB',
-      '--muted': '#E0F6FF'
-    }
-  },
-  {
-    name: 'Golden Hour',
-    colors: ['#B8860B', '#FFD700', '#FFFFE0', '#FFFACD'],
-    theme: {
-      '--primary': '#B8860B',
-      '--secondary': '#C8960B',
-      '--background': '#FFFACD',
-      '--foreground': '#6B4E06',
-      '--accent': '#FFD700',
-      '--muted': '#FFFFE0'
-    }
-  },
-  {
-    name: 'Rose Garden',
-    colors: ['#CD5C5C', '#F08080', '#FFE4E1', '#FFF5EE'],
-    theme: {
-      '--primary': '#CD5C5C',
-      '--secondary': '#D76C6C',
-      '--background': '#FFF5EE',
-      '--foreground': '#7A3434',
-      '--accent': '#F08080',
-      '--muted': '#FFE4E1'
-    }
-  }
-]
+
 
 type ThemeKey = keyof typeof THEMES
-type CustomPalette = typeof COLOR_PALETTES[0]
 
 export default function Home() {
   const [theme, setTheme] = useState<ThemeKey>('sam')
   const [activeDevice, setActiveDevice] = useState<'mobile' | 'tablet' | 'laptop' | 'desktop' | 'tv'>('mobile')
-  const [showColorPicker, setShowColorPicker] = useState(false)
-  const [customTheme, setCustomTheme] = useState<CustomPalette | null>(null)
 
   useEffect(() => {
     const root = document.documentElement
-    const vars = customTheme ? customTheme.theme : THEMES[theme].vars
+    const vars = THEMES[theme].vars
     Object.entries(vars).forEach(([key, value]) => {
       root.style.setProperty(key, value)
     })
-  }, [theme, customTheme])
-
-  const applyCustomPalette = (palette: CustomPalette) => {
-    setCustomTheme(palette)
-    setShowColorPicker(false)
-  }
+  }, [theme])
 
   const resetToStandardTheme = (themeKey: ThemeKey) => {
-    setCustomTheme(null)
     setTheme(themeKey)
   }
 
@@ -242,77 +90,14 @@ export default function Home() {
       {Object.entries(THEMES).map(([key, t]) => (
         <Button
           key={key}
-          variant={theme === key && !customTheme ? 'default' : 'outline'}
+          variant={theme === key ? 'default' : 'outline'}
           size="sm"
           onClick={() => resetToStandardTheme(key as ThemeKey)}
-          className="text-xs px-3 py-1 h-8 justify-start"
+          className="text-xs px-8 py-1 h-8 justify-start"
         >
           {t.label}
         </Button>
       ))}
-      
-      {/* My Colors Button */}
-      <div className="relative">
-        <Button
-          variant={customTheme ? 'default' : 'outline'}
-          size="sm"
-          onClick={() => setShowColorPicker(!showColorPicker)}
-          className="text-xs px-3 py-1 h-8 justify-start w-full"
-        >
-          My colors
-          <ChevronDownIcon className="w-3 h-3 ml-auto" />
-        </Button>
-        
-        {/* Color Palette Dropdown */}
-        {showColorPicker && (
-          <>
-            {/* Overlay to close on outside click */}
-            <div 
-              className="color-palette-overlay"
-              onClick={() => setShowColorPicker(false)}
-            />
-            <div className="absolute top-full right-0 mt-1 bg-background border border-border rounded-lg color-palette-dropdown p-3 z-50 w-auto">
-              <div className="mb-3">
-                <h3 className="text-sm font-medium text-foreground">Color Palettes</h3>
-              </div>
-              <div className="flex flex-wrap justify-center gap-1 max-h-64 overflow-y-auto overflow-x-hidden">
-                {COLOR_PALETTES.map((palette, index) => (
-                  <div
-                    key={index}
-                    className="cursor-pointer group color-palette-item p-1 rounded-md hover:bg-muted/50 transition-colors"
-                    onClick={() => applyCustomPalette(palette)}
-                  >
-                    <div className="flex items-center justify-between">
-                      {/* Color circles */}
-                      <div className="flex gap-1.5">
-                        {palette.colors.map((color, colorIndex) => (
-                          <div
-                            key={colorIndex}
-                            className="w-5 h-5 rounded-full border border-border/30 color-circle"
-                            style={{ backgroundColor: color }}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              
-              {/* Close button */}
-              <div className="flex justify-end mt-3 pt-3 border-t border-border">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => setShowColorPicker(false)}
-                  className="text-xs px-3 py-1 h-6"
-                >
-                  Close
-                </Button>
-              </div>
-            </div>
-          </>
-        )}
-      </div>
     </div>
   )
 
@@ -324,7 +109,7 @@ export default function Home() {
     cssVar: string
   }) => {
     const getHexColor = (cssVar: string) => {
-      const currentTheme = customTheme ? customTheme.theme : THEMES[theme].vars
+      const currentTheme = THEMES[theme].vars
       const varName = cssVar.replace('--', '')
       const hexValue = currentTheme[`--${varName}` as keyof typeof currentTheme]
       
@@ -335,7 +120,7 @@ export default function Home() {
       <div className="flex flex-col items-center gap-1 text-xs">
         <div
           className="w-16 h-16 rounded-lg border"
-          style={{ backgroundColor: `var(${cssVar})` }}
+          style={{ backgroundColor: cssVar.startsWith('--') ? `var(${cssVar})` : getHexColor(cssVar) }}
         />
         <span className="font-mono">{name}</span>
         <span className="font-mono text-muted-foreground text-xs">{getHexColor(cssVar)}</span>
@@ -361,17 +146,43 @@ export default function Home() {
   return (
     <main className="px-4 md:px-10 max-w-5xl mx-auto font-primary transition-colors">
       <header className="py-6 flex items-center justify-between">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider flex items-center">
-          FIM
-          <span className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-md mx-1 shadow-sm border">
-            <img
-              src={typeof logoPath === 'string' ? logoPath : logoPath.src}
-              alt="FIMA1NFO Logo"
-              className="w-6 h-6 md:w-7 md:h-7 object-contain"
-            />
-          </span>
-          1NFO
-        </h1>
+        <div className="flex flex-col items-start">
+          <div className="w-full" ref={(el) => {
+            if (el) {
+              const logoWidth = document.getElementById('main-logo')?.getBoundingClientRect().width;
+              if (logoWidth) {
+                const extranetDiv = el.querySelector('.extranet-text') as HTMLElement;
+                if (extranetDiv) {
+                  extranetDiv.style.width = `${logoWidth}px`;
+                }
+              }
+            }
+          }}>
+            <h1 className="text-3xl md:text-4xl font-extrabold tracking-wider flex items-center" id="main-logo">
+              FIM
+              <span className="inline-flex items-center justify-center w-8 h-8 md:w-10 md:h-10 bg-white rounded-md mx-1 shadow-sm border">
+                <img
+                  src={typeof logoPath === 'string' ? logoPath : logoPath.src}
+                  alt="FIMA1NFO Logo"
+                  className="w-6 h-6 md:w-7 md:h-7 object-contain"
+                />
+              </span>
+              1NFO
+            </h1>
+            <div className="flex w-full mt-1">
+              <div className="extranet-text text-sm font-light text-foreground w-full flex justify-between px-1" style={{ letterSpacing: '0.05em' }}>
+                <span className="text-center">E</span>
+                <span className="text-center">X</span>
+                <span className="text-center">T</span>
+                <span className="text-center">R</span>
+                <span className="text-center">A</span>
+                <span className="text-center">N</span>
+                <span className="text-center">E</span>
+                <span className="text-center">T</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <ThemeSelect />
       </header>
 
@@ -405,12 +216,13 @@ export default function Home() {
       </Section>
 
       <Section title="Palette de couleurs – thème actuel">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-7 gap-4">
           <ColorSwatch name="Primary" cssVar="--primary" />
           <ColorSwatch name="Secondary" cssVar="--secondary" />
           <ColorSwatch name="Background" cssVar="--background" />
           <ColorSwatch name="Foreground" cssVar="--foreground" />
-          <ColorSwatch name="Accent" cssVar="--accent" />
+          <ColorSwatch name="Error" cssVar="--error" />
+          <ColorSwatch name="Success" cssVar="--success" />
           <ColorSwatch name="Muted" cssVar="--muted" />
         </div>
       </Section>
@@ -486,17 +298,17 @@ export default function Home() {
             <Loader2 className="w-4 h-4 animate-spin" />
             <span>Chargement…</span>
           </div>
-          <div className="flex items-center gap-2 text-green-600 text-sm">
+          <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--success)' }}>
             <CheckCircle className="w-4 h-4" />
             <span>Succès ! Données enregistrées</span>
           </div>
-          <div className="flex items-center gap-2 text-red-600 text-sm">
+          <div className="flex items-center gap-2 text-sm" style={{ color: 'var(--error)' }}>
             <XCircle className="w-4 h-4" />
             <span>Erreur : impossible de charger</span>
           </div>
           <div className="flex items-start gap-2">
-            <InformationCircleIcon className="w-4 h-4 text-accent mt-0.5" />
-            <span className="text-sm italic text-accent">
+            <InformationCircleIcon className="w-4 h-4 text-primary mt-0.5" />
+            <span className="text-sm italic text-primary">
               Aucun résultat trouvé.
             </span>
           </div>
@@ -617,8 +429,8 @@ export default function Home() {
             <div className="flex flex-wrap gap-2">
               <Badge variant="default">Nouveau</Badge>
               <Badge variant="secondary">En cours</Badge>
-              <Badge variant="destructive">Urgent</Badge>
-              <Badge className="bg-green-600 hover:bg-green-700 text-white">Terminé</Badge>
+              <Badge className="border-transparent" style={{ backgroundColor: 'var(--error)', color: 'var(--error-foreground)', opacity: 1 }}>Urgent</Badge>
+              <Badge className="border-transparent" style={{ backgroundColor: 'var(--success)', color: 'var(--success-foreground)', opacity: 1 }}>Terminé</Badge>
             </div>
           </div>
 

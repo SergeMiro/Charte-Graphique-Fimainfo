@@ -22,7 +22,7 @@ const THEMES = {
     }
   },
   dark: {
-    label: 'Business Dark',
+    label: 'Dark',
     vars: {
       '--primary': '217 91% 60%',
       '--background': '217 28% 10%',
@@ -32,7 +32,7 @@ const THEMES = {
     }
   },
   accent: {
-    label: 'Accent Light',
+    label: 'Light',
     vars: {
       '--primary': '43 96% 56%',
       '--background': '0 0% 100%',

@@ -34,16 +34,16 @@
   --popover-foreground: #d6f0f6;
   --primary: #d6f0f6;
   --primary-foreground: #1c2e1c;
-  --secondary: #004080;
+  --secondary: #004b80;
   --secondary-foreground: #d6f0f6;
-  --muted: #004080;
+  --muted: #004b80;
   --muted-foreground: #a1a1a1;
-  --accent: #004080;
+  --accent: #004b80;
   --accent-foreground: #d6f0f6;
   --destructive: #7f1d1d;
   --destructive-foreground: #d6f0f6;
-  --border: #004080;
-  --input: #004080;
+  --border: #004b80;
+  --input: #004b80;
   --ring: #7fb3ff;
 }
 
@@ -66,23 +66,23 @@ body {
   --secondary: #172B4D;
   --background: #fafafa;
   --foreground: #3a4a6b;
-  --accent: #54a0ff;
+  --accent: #5b6485 ;
   --muted: #dedede;
 }
 
 /* SAM theme button hover styles */
-.theme-sam button:hover {
-  background-color: #1e40af !important;
+/* .theme-sam button:hover {
+  background-color: #5b6485 !important;
   color: white !important;
 }
 
 .theme-sam button:hover svg {
   color: white !important;
-}
+} */
 
 .theme-dark {
-  --primary: #003366;
-  --secondary: #004080;
+  --primary: #365984;
+  --secondary: #004b80;
   --background: #1a2a3a;
   --foreground: #ffffff;
   --accent: #c0c0c0;

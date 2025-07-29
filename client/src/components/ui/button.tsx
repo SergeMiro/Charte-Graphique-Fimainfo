@@ -9,13 +9,30 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-slate-50 hover:opacity-95",
-        destructive: "hover:opacity-95",
-        outline: "border border-input bg-background hover:opacity-95",
-        secondary: "bg-secondary text-slate-50 hover:opacity-95",
-        ghost: "hover:opacity-95",
-        link: "text-primary underline-offset-4 hover:opacity-95",
-        slate: "bg-primary text-slate-50 hover:opacity-95",
+        // Primary button
+        default:
+          "bg-primary text-background hover:bg-primary/90",
+        // Error button
+        //destructive:
+          //"bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        // Outlined button
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        // Secondary button
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        // Button with spinner (Loading)
+        ghost:
+          "bg-transparent hover:bg-accent hover:text-accent-foreground",
+        // Button as link
+        link:
+          "underline-offset-4 hover:underline text-primary",
+        // Success button
+        success:
+          "bg-green-600 text-white hover:bg-green-700",
+        // Slate (custom)
+        slate:
+          "bg-slate-600 text-slate-50 hover:bg-slate-700",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -25,7 +42,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: "default",
+     // variant: "default",
       size: "default",
     },
   }
@@ -41,15 +58,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
-    const style = variant === 'destructive' ? { 
-      backgroundColor: 'var(--error)', 
-      color: 'var(--error-foreground)' 
-    } : {}
+    // Use CSS classes instead of inline styles for themed buttons
     
     return (
       <Comp
         className={cn(buttonVariants({ variant, size, className }))}
-        style={style}
         ref={ref}
         {...props}
       />

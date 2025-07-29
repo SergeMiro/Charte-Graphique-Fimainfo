@@ -26,46 +26,12 @@ import {
 } from '@heroicons/react/24/outline'
 import logoPath from '@assets/icon_fimainfo_1752137499908.png'
 
+// Theme definitions moved to index.css
 const THEMES = {
-  sam: {
-    label: 'SAM',
-    vars: {
-      '--primary': '#0052CC',
-      '--secondary': '#172B4D',
-      '--background': '#ffffff',
-      '--foreground': '#3a4a6b',
-      '--error': '#FF3C38',
-      '--success': '#2BC016',
-      '--muted': '#EBECF0'
-    }
-  },
-  dark: {
-    label: 'Dark',
-    vars: {
-      '--primary': '#365984',
-      '--secondary': '#004b80',
-      '--background': '#1a2a3a',
-      '--foreground': '#f3f3f3',
-      '--error': '#a54543',
-      '--success': '#5b8d54',
-      '--muted': '#3c4a5a'
-    }
-  },
-  accent: {
-    label: 'Light',
-    vars: {
-      '--primary': '#879eb9',
-      '--secondary': '#b0c1b9',
-      '--background': '#ffffff',
-      '--foreground': '#53617f',
-      '--error': '#e58d85',
-      '--success': '#7ac96f',
-      '--muted': '#ccd3db'
-    }
-  }
+  sam: { label: 'SAM' },
+  dark: { label: 'Dark' },
+  accent: { label: 'Light' }
 } as const
-
-
 
 type ThemeKey = keyof typeof THEMES
 
@@ -75,10 +41,7 @@ export default function Home() {
 
   useEffect(() => {
     const root = document.documentElement
-    const vars = THEMES[theme].vars
-    Object.entries(vars).forEach(([key, value]) => {
-      root.style.setProperty(key, value)
-    })
+    root.setAttribute('data-theme', theme === 'sam' ? '' : theme)
   }, [theme])
 
   const resetToStandardTheme = (themeKey: ThemeKey) => {
@@ -90,7 +53,7 @@ export default function Home() {
       {Object.entries(THEMES).map(([key, t]) => (
         <Button
           key={key}
-          variant={theme === key ? 'default' : 'outline'}
+          variant={theme === key ? 'default' : 'secondary'}
           size="sm"
           onClick={() => resetToStandardTheme(key as ThemeKey)}
           className="text-xs px-8 py-1 h-8 justify-start"
@@ -109,11 +72,9 @@ export default function Home() {
     cssVar: string
   }) => {
     const getHexColor = (cssVar: string) => {
-      const currentTheme = THEMES[theme].vars
-      const varName = cssVar.replace('--', '')
-      const hexValue = currentTheme[`--${varName}` as keyof typeof currentTheme]
-      
-      return hexValue || '#000000'
+      // Get computed color value from CSS variable
+      const computedStyle = getComputedStyle(document.documentElement)
+      return computedStyle.getPropertyValue(cssVar.replace('var(', '').replace(')', '')) || '#000000'
     }
     
     return (
@@ -229,14 +190,14 @@ export default function Home() {
 
       <Section title="Boutons">
         <div className="flex flex-wrap gap-2 items-center">
-          <Button size="sm" className="text-xs px-3 py-1 h-8">Primary</Button>
-          <Button size="sm" variant="secondary" className="text-xs px-3 py-1 h-8">Secondary</Button>
+          <Button size="sm" className="btn-primary text-xs px-3 py-1 h-8">Primary</Button>
+          <Button size="sm" className="btn-secondary text-xs px-3 py-1 h-8">Secondary</Button>
           <Button size="sm" disabled className="text-xs px-3 py-1 h-8">Disabled</Button>
-          <Button size="sm" className="text-xs px-3 py-1 h-8">
+          <Button size="sm" className="btn-primary text-xs px-3 py-1 h-8">
             <Loader2 className="w-3 h-3 mr-1 animate-spin" />
             Loading
           </Button>
-          <Button size="sm" variant="destructive" className="text-xs px-3 py-1 h-8">
+          <Button size="sm" className="btn-error text-xs px-3 py-1 h-8">
             <XCircle className="w-3 h-3 mr-1" />
             Error
           </Button>
@@ -429,8 +390,8 @@ export default function Home() {
             <div className="flex flex-wrap gap-2">
               <Badge variant="default">Nouveau</Badge>
               <Badge variant="secondary">En cours</Badge>
-              <Badge className="border-transparent" style={{ backgroundColor: 'var(--error)', color: 'var(--error-foreground)', opacity: 1 }}>Urgent</Badge>
-              <Badge className="border-transparent" style={{ backgroundColor: 'var(--success)', color: 'var(--success-foreground)', opacity: 1 }}>Terminé</Badge>
+              <Badge className="border-transparent" style={{ backgroundColor: 'var(--error)', color: 'text-slate-50', opacity: 1 }}>Urgent</Badge>
+              <Badge className="border-transparent" style={{ backgroundColor: 'var(--success)', color: 'text-slate-50', opacity: 1 }}>Terminé</Badge>
             </div>
           </div>
 

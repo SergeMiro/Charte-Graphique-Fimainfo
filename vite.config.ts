@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
+// Настройка Vite для работы с Tailwind 3
 export default defineConfig({
   plugins: [
     react(),
@@ -23,6 +24,17 @@ export default defineConfig({
       "@assets": path.resolve(import.meta.dirname, "attached_assets"),
     },
   },
+  css: {
+    // Явно отключаем модули CSS для обработки Tailwind
+    modules: {
+      localsConvention: "camelCase",
+    },
+    // Настраиваем postcss для использования с Tailwind 3
+    postcss: "./postcss.config.cjs",
+  },
+  optimizeDeps: {
+    include: ['tailwindcss'],
+  },
   root: path.resolve(import.meta.dirname, "client"),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
@@ -31,6 +43,11 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: undefined,
+      },
+      // Исключаем проблематичные обработки HTML proxy
+      onwarn(warning, warn) {
+        if (warning.code === 'UNUSED_EXTERNAL_IMPORT') return;
+        warn(warning);
       },
     },
   },

@@ -81,12 +81,12 @@ body {
 } */
 
 .theme-dark {
-  --primary: #365984;
+  --primary: #6f89a7;
   --secondary: #004b80;
   --background: #1a2a3a;
   --foreground: #ffffff;
   --accent: #c0c0c0;
-  --muted: #3c4a5a;
+  --muted: #EBECF0;
 }
 
 .theme-accent {

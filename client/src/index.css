@@ -2,77 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme definitions */
+/* Hide navigation bar */
+
+
+/* ShadCN UI Compatible Theme Variables */
 :root {
+  /* Border radius */
+  --radius: 0.5rem;
+  
   /* SAM Theme - Default */
-  --primary: #0052CC;
-  --secondary: #172B4D;
   --background: #ffffff;
   --foreground: #3a4a6b;
-  --error: #FF3C38;
-  --error-foreground: #ffffff;
-  --success: #2BC016;
-  --success-foreground: #ffffff;
-  --alarm: #FFB703;
-  --alarm-foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #3a4a6b;
+  --popover: #ffffff;
+  --popover-foreground: #3a4a6b;
+  --primary: #0052CC;
+  --primary-foreground: #ffffff;
+  --secondary: #7A869A;
+  --secondary-foreground: #ffffff;
   --muted: #EBECF0;
+  --muted-foreground: #6B778C;
+  --accent: #EBECF0;
+  --accent-foreground: #172B4D;
+  --destructive: #FF3C38;
+  --destructive-foreground: #ffffff;
+  --border: #DFE1E6;
+  --input: #DFE1E6;
+  --ring: #0052CC;
+  
+  /* Custom colors for your project */
+  --success: #2BC016;
+  --success-foreground: #f8f6f6;
+  --alarm: #FFAB00;
+  --alarm-foreground: #f8f6f6;
 }
 
 [data-theme="dark"] {
-  --primary: #365984;
-  --secondary: #004b80;
   --background: #1a2a3a;
   --foreground: #f3f3f3;
-  --error: #a54543;
-  --error-foreground: #ffffff;
+  --card: #253544;
+  --card-foreground: #f3f3f3;
+  --popover: #253544;
+  --popover-foreground: #f3f3f3;
+  --primary: #6f89a7;
+  --primary-foreground: #ffffff;
+  --secondary: #7A869A;
+  --secondary-foreground: #ffffff;
+  --muted: #EBECF0;
+  --muted-foreground: #94a3b8;
+  --accent: #475569;
+  --accent-foreground: #f3f3f3;
+  --destructive: #a54543;
+  --destructive-foreground: #ffffff;
+  --border: #475569;
+  --input: #475569;
+  --ring: #6f89a7;
+  
+  /* Custom colors for your project */
   --success: #5b8d54;
-  --success-foreground: #ffffff;
+  --success-foreground: #f8f6f6;
   --alarm: #b1913f;
   --alarm-foreground: #000000;
-  --muted: #3c4a5a;
 }
 
 [data-theme="accent"] {
-  --primary: #879eb9;
-  --secondary: #b0c1b9;
   --background: #ffffff;
   --foreground: #53617f;
-  --error: #e58d85;
-  --error-foreground: #ffffff;
+  --card: #ffffff;
+  --card-foreground: #53617f;
+  --popover: #ffffff;
+  --popover-foreground: #53617f;
+  --primary: #879eb9;
+  --primary-foreground: #ffffff;
+  --secondary: #7A869A;
+  --secondary-foreground: #ffffff;
+  --muted: #EBECF0;
+  --muted-foreground: #6b7280;
+  --accent: #e2e8f0;
+  --accent-foreground: #53617f;
+  --destructive: #e58d85;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #d1d5db;
+  --ring: #879eb9;
+  
+  /* Custom colors for your project */
   --success: #7ac96f;
-  --success-foreground: #ffffff;
+  --success-foreground: #f8f6f6;
   --alarm: #dab559;
   --alarm-foreground: #000000;
-  --muted: #ccd3db;
 }
 
 @layer components {
   .btn-primary,
   .btn-secondary,
   .btn-success,
-  .btn-error,
+  .btn-destructive,
   .btn-alarm {
-    @apply text-white border-muted;
+    @apply text-white border-border;
   }
   
   .btn-primary {
-    @apply bg-primary;
+    @apply bg-primary text-primary-foreground;
   }
   
   .btn-secondary {
-    @apply bg-secondary;
+    @apply bg-secondary text-secondary-foreground;
   }
   
   .btn-success {
-    @apply bg-success;
+    @apply text-success-foreground;
+    background-color: var(--success);
   }
   
-  .btn-error {
-    @apply bg-error;
+  .btn-destructive {
+    @apply bg-destructive text-destructive-foreground;
   }
 
   .btn-alarm {
-    @apply bg-alarm;
+    @apply text-alarm-foreground;
+    background-color: var(--alarm);
   }
-} 
-
+}

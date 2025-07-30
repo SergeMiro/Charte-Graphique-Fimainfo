@@ -52,10 +52,6 @@ export default {
           DEFAULT: "var(--success)",
           foreground: "var(--success-foreground)",
         },
-        error: {
-          DEFAULT: "var(--error)",
-          foreground: "var(--error-foreground)",
-        },
         alarm: {
           DEFAULT: "var(--alarm)",
           foreground: "var(--alarm-foreground)",

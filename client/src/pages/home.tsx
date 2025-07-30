@@ -444,7 +444,10 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'mobile' ? 'default' : 'outline'}
-                  onClick={() => setActiveDevice('mobile')}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveDevice('mobile')
+                  }}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <DevicePhoneMobileIcon className="w-4 h-4" />
@@ -459,7 +462,10 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'tablet' ? 'default' : 'outline'}
-                  onClick={() => setActiveDevice('tablet')}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveDevice('tablet')
+                  }}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <DeviceTabletIcon className="w-4 h-4" />
@@ -474,7 +480,10 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'laptop' ? 'default' : 'outline'}
-                  onClick={() => setActiveDevice('laptop')}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveDevice('laptop')
+                  }}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <ComputerDesktopIcon className="w-4 h-4" />
@@ -489,7 +498,10 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'desktop' ? 'default' : 'outline'}
-                  onClick={() => setActiveDevice('desktop')}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveDevice('desktop')
+                  }}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <ComputerDesktopIcon className="w-4 h-4" />
@@ -504,7 +516,10 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'tv' ? 'default' : 'outline'}
-                  onClick={() => setActiveDevice('tv')}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setActiveDevice('tv')
+                  }}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <TvIcon className="w-4 h-4" />

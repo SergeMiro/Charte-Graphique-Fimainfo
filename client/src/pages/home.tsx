@@ -167,10 +167,10 @@ export default function Home() {
       <Section title="Typographie">
         <div className="space-y-4">
           <p className="text-sm text-muted-foreground font-primary">
-            Police principale : Inter – fallback : sans-serif
+            Police principale : Open Sans – fallback : sans-serif
           </p>
           <p className="text-sm text-muted-foreground font-secondary">
-            Police secondaire : Merriweather – fallback : serif
+            Police secondaire : Montserrat – fallback : sans-serif
           </p>
           <h1 className="text-4xl lg:text-5xl font-bold font-primary">
             Titre niveau 1 / h1

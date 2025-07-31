@@ -4,6 +4,10 @@ export default {
   darkMode: ["class"],
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      sans: ['Open Sans', 'system-ui', 'sans-serif'],
+      heading: ['Montserrat', 'system-ui', 'sans-serif'],
+    },
     container: {
       center: true,
       padding: "2rem",

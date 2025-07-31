@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useButtonHandler } from '@/hooks/useButtonHandler'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Badge } from '@/components/ui/badge'
@@ -47,6 +48,7 @@ type ThemeKey = keyof typeof THEMES
 export default function Home() {
   const [theme, setTheme] = useState<ThemeKey>('sam')
   const [activeDevice, setActiveDevice] = useState<'mobile' | 'tablet' | 'laptop' | 'desktop' | 'tv'>('mobile')
+  const { handleButtonClick } = useButtonHandler()
 
   useEffect(() => {
     const root = document.documentElement
@@ -444,10 +446,7 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'mobile' ? 'default' : 'outline'}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveDevice('mobile')
-                  }}
+                  onClick={(e) => handleButtonClick(() => setActiveDevice('mobile'), e)}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <DevicePhoneMobileIcon className="w-4 h-4" />
@@ -462,10 +461,7 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'tablet' ? 'default' : 'outline'}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveDevice('tablet')
-                  }}
+                  onClick={(e) => handleButtonClick(() => setActiveDevice('tablet'), e)}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <DeviceTabletIcon className="w-4 h-4" />
@@ -480,10 +476,7 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'laptop' ? 'default' : 'outline'}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveDevice('laptop')
-                  }}
+                  onClick={(e) => handleButtonClick(() => setActiveDevice('laptop'), e)}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <ComputerDesktopIcon className="w-4 h-4" />
@@ -498,10 +491,7 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'desktop' ? 'default' : 'outline'}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveDevice('desktop')
-                  }}
+                  onClick={(e) => handleButtonClick(() => setActiveDevice('desktop'), e)}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <ComputerDesktopIcon className="w-4 h-4" />
@@ -516,10 +506,7 @@ export default function Home() {
                 <Button
                   size="sm"
                   variant={activeDevice === 'tv' ? 'default' : 'outline'}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    setActiveDevice('tv')
-                  }}
+                  onClick={(e) => handleButtonClick(() => setActiveDevice('tv'), e)}
                   className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
                 >
                   <TvIcon className="w-4 h-4" />

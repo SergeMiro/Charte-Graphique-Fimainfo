@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
 import { Loader2, CheckCircle, XCircle, CalendarIcon } from 'lucide-react'
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipTrigger, TooltipProvider } from '@/components/ui/tooltip'
 import {
   InformationCircleIcon,
   HomeIcon,
@@ -33,6 +33,7 @@ import { DropdownMenuDemo } from '@/components/ui/dropdown-menu-demo'
 import { DialogDemo } from '@/components/ui/dialog-demo'
 import { AlertDialogDemo } from '@/components/ui/alert-dialog-demo'
 import { ToastDemo } from '@/components/ui/toast-demo'
+import { TooltipDemo } from '@/components/ui/tooltip-demo'
 import { Toaster } from '@/components/ui/toaster'
 import { FilterableTable } from '@/components/ui/filterable-table'
 
@@ -462,6 +463,13 @@ export default function Home() {
           </div>
 
           <div className="space-y-2 mt-4">
+            <h3 className="text-lg font-medium">Tooltips</h3>
+            <div className="flex flex-wrap gap-4 items-center">
+              <TooltipDemo />
+            </div>
+          </div>
+
+          <div className="space-y-2 mt-4">
             <h3 className="text-lg font-medium">Tableau filtrable</h3>
             <FilterableTable />
           </div>
@@ -471,81 +479,83 @@ export default function Home() {
       <Section title="Responsive & Breakpoints">
         <div className="space-y-4">
           <div className="flex gap-2 items-center">
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size="sm"
-                  variant={activeDevice === 'mobile' ? 'default' : 'outline'}
-                  onClick={(e) => handleButtonClick(() => setActiveDevice('mobile'), e)}
-                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
-                >
-                  <DevicePhoneMobileIcon className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Smartphone</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size="sm"
-                  variant={activeDevice === 'tablet' ? 'default' : 'outline'}
-                  onClick={(e) => handleButtonClick(() => setActiveDevice('tablet'), e)}
-                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
-                >
-                  <DeviceTabletIcon className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Tablette</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size="sm"
-                  variant={activeDevice === 'laptop' ? 'default' : 'outline'}
-                  onClick={(e) => handleButtonClick(() => setActiveDevice('laptop'), e)}
-                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
-                >
-                  <ComputerDesktopIcon className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Ordinateur portable</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size="sm"
-                  variant={activeDevice === 'desktop' ? 'default' : 'outline'}
-                  onClick={(e) => handleButtonClick(() => setActiveDevice('desktop'), e)}
-                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
-                >
-                  <ComputerDesktopIcon className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Ordinateur de bureau</p>
-              </TooltipContent>
-            </Tooltip>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Button
-                  size="sm"
-                  variant={activeDevice === 'tv' ? 'default' : 'outline'}
-                  onClick={(e) => handleButtonClick(() => setActiveDevice('tv'), e)}
-                  className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
-                >
-                  <TvIcon className="w-4 h-4" />
-                </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Télévision</p>
-              </TooltipContent>
-            </Tooltip>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant={activeDevice === 'mobile' ? 'default' : 'outline'}
+                    onClick={(e) => handleButtonClick(() => setActiveDevice('mobile'), e)}
+                    className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                  >
+                    <DevicePhoneMobileIcon className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Smartphone</p>
+                </TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant={activeDevice === 'tablet' ? 'default' : 'outline'}
+                    onClick={(e) => handleButtonClick(() => setActiveDevice('tablet'), e)}
+                    className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                  >
+                    <DeviceTabletIcon className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Tablette</p>
+                </TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant={activeDevice === 'laptop' ? 'default' : 'outline'}
+                    onClick={(e) => handleButtonClick(() => setActiveDevice('laptop'), e)}
+                    className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                  >
+                    <ComputerDesktopIcon className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Ordinateur portable</p>
+                </TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant={activeDevice === 'desktop' ? 'default' : 'outline'}
+                    onClick={(e) => handleButtonClick(() => setActiveDevice('desktop'), e)}
+                    className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                  >
+                    <ComputerDesktopIcon className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Ordinateur de bureau</p>
+                </TooltipContent>
+              </Tooltip>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant={activeDevice === 'tv' ? 'default' : 'outline'}
+                    onClick={(e) => handleButtonClick(() => setActiveDevice('tv'), e)}
+                    className="text-xs px-3 py-1 h-8 hover:text-gray-400 transition-colors"
+                  >
+                    <TvIcon className="w-4 h-4" />
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Télévision</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </div>
           
           <div className={`

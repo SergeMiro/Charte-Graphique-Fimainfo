@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { useButtonHandler } from '@/hooks/useButtonHandler'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -85,20 +85,42 @@ export default function Home() {
     name: string
     cssVar: string
   }) => {
-    const getHexColor = (cssVar: string) => {
+    const [hexColor, setHexColor] = useState<string>('#000000')
+
+    // Fonction pour obtenir la valeur hexadécimale actuelle de la variable CSS
+    const getHexColor = useCallback((cssVar: string) => {
       // Get computed color value from CSS variable
       const computedStyle = getComputedStyle(document.documentElement)
       return computedStyle.getPropertyValue(cssVar.replace('var(', '').replace(')', '')) || '#000000'
-    }
-    
+    }, [])
+
+    // Mettre à jour la valeur hexadécimale lorsque le thème change
+    useEffect(() => {
+      // Mise à jour initiale
+      setHexColor(getHexColor(cssVar))
+
+      // Observer pour les changements de thème
+      const observer = new MutationObserver(() => {
+        setHexColor(getHexColor(cssVar))
+      })
+
+      // Observer les changements d'attributs (comme les classes de thème) sur le document
+      observer.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['data-theme', 'class']
+      })
+
+      return () => observer.disconnect()
+    }, [cssVar, getHexColor])
+
     return (
       <div className="flex flex-col items-center gap-1 text-xs">
         <div
           className="w-16 h-16 rounded-lg border"
-          style={{ backgroundColor: cssVar.startsWith('--') ? `var(${cssVar})` : getHexColor(cssVar) }}
+          style={{ backgroundColor: cssVar.startsWith('--') ? `var(${cssVar})` : hexColor }}
         />
         <span className="font-mono">{name}</span>
-        <span className="font-mono text-muted-foreground text-xs">{getHexColor(cssVar)}</span>
+        <span className="font-mono text-muted-foreground text-xs">{hexColor}</span>
       </div>
     )
   }

@@ -556,12 +556,12 @@ export default function Home() {
             ${activeDevice === 'desktop' ? 'grid-cols-4' : ''}
             ${activeDevice === 'tv' ? 'grid-cols-5' : ''}
           `}>
-            <div className="p-6 bg-muted rounded-lg">Content Bloc 1</div>
-            <div className="p-6 bg-muted rounded-lg">Content Bloc 2</div>
-            <div className="p-6 bg-muted rounded-lg">Content Bloc 3</div>
-            <div className="p-6 bg-muted rounded-lg">Content Bloc 4</div>
-            <div className="p-6 bg-muted rounded-lg">Content Bloc 5</div>
-            <div className="p-6 bg-muted rounded-lg">Content Bloc 6</div>
+            <div className="p-6 bg-muted rounded-lg text-foreground">Content Bloc 1</div>
+            <div className="p-6 bg-muted rounded-lg   text-foreground">Content Bloc 2</div>
+            <div className="p-6 bg-muted rounded-lg text-foreground">Content Bloc 3</div>
+            <div className="p-6 bg-muted rounded-lg text-foreground">Content Bloc 4</div>
+            <div className="p-6 bg-muted rounded-lg text-foreground">Content Bloc 5</div>
+            <div className="p-6 bg-muted rounded-lg text-foreground">Content Bloc 6</div>
           </div>
         </div>
       </Section>

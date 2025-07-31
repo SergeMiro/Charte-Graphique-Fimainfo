@@ -24,7 +24,7 @@ export function ToastDemo() {
           variant="outline" 
           size="sm" 
           onClick={() => console.log("Try again clicked")}
-          className="h-8 border-white text-destructive hover:bg-destructive hover:text-white"
+          className="h-8 border-white text-destructive hover:bg-white hover:text-destructive"
         >
           Try again
         </Button>

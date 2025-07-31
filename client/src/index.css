@@ -47,6 +47,12 @@
   --success-foreground: #f8f6f6;
   --alarm: #FFAB00;
   --alarm-foreground: #f8f6f6;
+  
+  /* Additional custom colors */
+  --cyan: rgb(0, 184, 217);
+  --cyan-foreground: #ffffff;
+  --purple: rgb(101, 84, 192);
+  --purple-foreground: #ffffff;
 }
 
 [data-theme="dark"] {
@@ -56,25 +62,31 @@
   --card-foreground: #f3f3f3;
   --popover: #253544;
   --popover-foreground: #f3f3f3;
-  --primary: #6f89a7;
-  --primary-foreground: #ffffff;
-  --secondary: #7A869A;
-  --secondary-foreground: #ffffff;
-  --muted: #EBECF0;
+  --primary: #899eb7;
+  --primary-foreground: #1a2a3a;
+  --secondary: #a4a9cbe3;
+  --secondary-foreground: #1a2a3a;
+  --muted: #a19ea5;
   --muted-foreground: #94a3b8;
   --accent: #475569;
-  --accent-foreground: #f3f3f3;
-  --destructive: #a54543;
-  --destructive-foreground: #ffffff;
-  --border: #475569;
-  --input: #475569;
-  --ring: #6f89a7;
+  --accent-foreground: #1a2a3a;
+  --destructive: #97423f;
+  --destructive-foreground: #1a2a3a;
+  --border: #b9cbd8;
+  --input: #b9cbd8;
+  --ring: #899eb7;
   
   /* Custom colors for your project */
   --success: #5b8d54;
-  --success-foreground: #f8f6f6;
+  --success-foreground: #1a2a3a;
   --alarm: #b1913f;
-  --alarm-foreground: #000000;
+  --alarm-foreground: #1a2a3a;
+  
+  /* Additional custom colors */
+  --cyan: #0097b2;
+  --cyan-foreground: #1a2a3a;
+  --purple: #5547a3;
+  --purple-foreground: #1a2a3a;
 }
 
 [data-theme="accent"] {
@@ -102,7 +114,13 @@
   --success: #7ac96f;
   --success-foreground: #f8f6f6;
   --alarm: #dab559;
-  --alarm-foreground: #000000;
+  --alarm-foreground: #f3f3f3;
+  
+  /* Additional custom colors */
+  --cyan: rgb(0, 184, 217);
+  --cyan-foreground: #f8f6f6;
+  --purple: rgb(101, 84, 192);
+  --purple-foreground: #f8f6f6;
 }
 
 @layer components {
@@ -110,7 +128,9 @@
   .btn-secondary,
   .btn-success,
   .btn-destructive,
-  .btn-alarm {
+  .btn-alarm,
+  .btn-cyan,
+  .btn-purple {
     @apply text-white border-border;
   }
   
@@ -134,5 +154,15 @@
   .btn-alarm {
     @apply text-alarm-foreground;
     background-color: var(--alarm);
+  }
+  
+  .btn-cyan {
+    @apply text-cyan-foreground;
+    background-color: var(--cyan);
+  }
+  
+  .btn-purple {
+    @apply text-purple-foreground;
+    background-color: var(--purple);
   }
 }

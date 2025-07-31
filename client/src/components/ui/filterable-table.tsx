@@ -21,7 +21,7 @@ export interface TableData {
   nom: string
   prenom: string
   tel: string
-  statut: 'rappel' | 'repondeur' | 'absent' | 'rdv' | 'relance' | 'test'
+  statut: 'Rappel' | 'repondeur' | 'Absent' | 'Rdv' | 'Relance' | 'Test'
   marqueVeh: string
   modeleVeh: string
   immat: string
@@ -34,7 +34,7 @@ const sampleData: TableData[] = [
     nom: 'MARTIN',
     prenom: 'Jean',
     tel: '06 12 34 56 78',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Renault',
     modeleVeh: 'Clio',
     immat: 'AB-123-CD'
@@ -44,7 +44,7 @@ const sampleData: TableData[] = [
     nom: 'DUBOIS',
     prenom: 'Marie',
     tel: '06 98 76 54 32',
-    statut: 'test',
+    statut: 'Test',
     marqueVeh: 'Peugeot',
     modeleVeh: '208',
     immat: 'EF-456-GH'
@@ -54,7 +54,7 @@ const sampleData: TableData[] = [
     nom: 'BERNARD',
     prenom: 'Pierre',
     tel: '06 11 22 33 44',
-    statut: 'rappel',
+    statut: 'Rappel',
     marqueVeh: 'Citroën',
     modeleVeh: 'C3',
     immat: 'IJ-789-KL'
@@ -64,7 +64,7 @@ const sampleData: TableData[] = [
     nom: 'THOMAS',
     prenom: 'Sophie',
     tel: '06 55 66 77 88',
-    statut: 'relance',
+    statut: 'Relance',
     marqueVeh: 'Volkswagen',
     modeleVeh: 'Golf',
     immat: 'MN-012-OP'
@@ -74,7 +74,7 @@ const sampleData: TableData[] = [
     nom: 'PETIT',
     prenom: 'Luc',
     tel: '06 99 88 77 66',
-    statut: 'absent',
+    statut: 'Absent',
     marqueVeh: 'Ford',
     modeleVeh: 'Fiesta',
     immat: 'QR-345-ST'
@@ -84,7 +84,7 @@ const sampleData: TableData[] = [
     nom: 'ROBERT',
     prenom: 'Anne',
     tel: '06 44 33 22 11',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'BMW',
     modeleVeh: 'Série 1',
     immat: 'UV-678-WX'
@@ -94,7 +94,7 @@ const sampleData: TableData[] = [
     nom: 'RICHARD',
     prenom: 'Paul',
     tel: '06 77 88 99 00',
-    statut: 'rappel',
+    statut: 'Rappel',
     marqueVeh: 'Audi',
     modeleVeh: 'A3',
     immat: 'YZ-901-AB'
@@ -104,7 +104,7 @@ const sampleData: TableData[] = [
     nom: 'MOREAU',
     prenom: 'Julie',
     tel: '06 12 21 34 43',
-    statut: 'relance',
+    statut: 'Relance',
     marqueVeh: 'Mercedes',
     modeleVeh: 'Classe A',
     immat: 'CD-234-EF'
@@ -114,7 +114,7 @@ const sampleData: TableData[] = [
     nom: 'SIMON',
     prenom: 'Marc',
     tel: '06 56 65 78 87',
-    statut: 'test',
+    statut: 'Test',
     marqueVeh: 'Toyota',
     modeleVeh: 'Yaris',
     immat: 'GH-567-IJ'
@@ -124,7 +124,7 @@ const sampleData: TableData[] = [
     nom: 'MICHEL',
     prenom: 'Claire',
     tel: '06 90 09 12 21',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Nissan',
     modeleVeh: 'Micra',
     immat: 'KL-890-MN'
@@ -134,7 +134,7 @@ const sampleData: TableData[] = [
     nom: 'GARCIA',
     prenom: 'Carlos',
     tel: '06 34 43 56 65',
-    statut: 'rappel',
+    statut: 'Rappel',
     marqueVeh: 'Seat',
     modeleVeh: 'Ibiza',
     immat: 'OP-123-QR'
@@ -144,7 +144,7 @@ const sampleData: TableData[] = [
     nom: 'MARTINEZ',
     prenom: 'Elena',
     tel: '06 78 87 90 09',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Opel',
     modeleVeh: 'Corsa',
     immat: 'ST-456-UV'
@@ -154,7 +154,7 @@ const sampleData: TableData[] = [
     nom: 'LOPEZ',
     prenom: 'Antonio',
     tel: '06 12 34 56 78',
-    statut: 'rappel',
+    statut: 'Rappel',
     marqueVeh: 'Fiat',
     modeleVeh: '500',
     immat: 'WX-789-YZ'
@@ -164,7 +164,7 @@ const sampleData: TableData[] = [
     nom: 'GONZALEZ',
     prenom: 'Maria',
     tel: '06 98 76 54 32',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Hyundai',
     modeleVeh: 'i20',
     immat: 'AB-012-CD'
@@ -174,7 +174,7 @@ const sampleData: TableData[] = [
     nom: 'RODRIGUEZ',
     prenom: 'Carlos',
     tel: '06 11 22 33 44',
-    statut: 'absent',
+    statut: 'Absent',
     marqueVeh: 'Kia',
     modeleVeh: 'Picanto',
     immat: 'EF-345-GH'
@@ -184,7 +184,7 @@ const sampleData: TableData[] = [
     nom: 'HERNANDEZ',
     prenom: 'Isabella',
     tel: '06 55 66 77 88',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Mazda',
     modeleVeh: '2',
     immat: 'IJ-678-KL'
@@ -194,7 +194,7 @@ const sampleData: TableData[] = [
     nom: 'PEREZ',
     prenom: 'Diego',
     tel: '06 99 88 77 66',
-    statut: 'test',
+    statut: 'Test',
     marqueVeh: 'Suzuki',
     modeleVeh: 'Swift',
     immat: 'MN-901-OP'
@@ -204,7 +204,7 @@ const sampleData: TableData[] = [
     nom: 'SANCHEZ',
     prenom: 'Lucia',
     tel: '06 44 33 22 11',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Honda',
     modeleVeh: 'Jazz',
     immat: 'QR-234-ST'
@@ -214,7 +214,7 @@ const sampleData: TableData[] = [
     nom: 'RAMIREZ',
     prenom: 'Miguel',
     tel: '06 77 88 99 00',
-    statut: 'rappel',
+    statut: 'Rappel',
     marqueVeh: 'Skoda',
     modeleVeh: 'Fabia',
     immat: 'UV-567-WX'
@@ -224,7 +224,7 @@ const sampleData: TableData[] = [
     nom: 'TORRES',
     prenom: 'Carmen',
     tel: '06 12 21 34 43',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Dacia',
     modeleVeh: 'Sandero',
     immat: 'YZ-890-AB'
@@ -234,7 +234,7 @@ const sampleData: TableData[] = [
     nom: 'FLORES',
     prenom: 'Rafael',
     tel: '06 56 65 78 87',
-    statut: 'absent',
+    statut: 'Absent',
     marqueVeh: 'Mitsubishi',
     modeleVeh: 'Space Star',
     immat: 'CD-123-EF'
@@ -244,7 +244,7 @@ const sampleData: TableData[] = [
     nom: 'RIVERA',
     prenom: 'Sofia',
     tel: '06 90 09 12 21',
-    statut: 'rdv',
+    statut: 'Rdv',
     marqueVeh: 'Subaru',
     modeleVeh: 'Impreza',
     immat: 'GH-456-IJ'
@@ -398,17 +398,17 @@ export function FilterableTable({ data = sampleData, className }: FilterableTabl
   // Fonction pour obtenir la couleur du badge selon le statut
   const getStatusBadgeVariant = (statut: TableData['statut']) => {
     switch (statut) {
-      case 'rappel':
+      case 'Rappel':
         return 'blue' // Bleu
       case 'repondeur':
         return 'secondary' // Gris
-      case 'absent':
+      case 'Absent':
         return 'destructive' // Rouge
-      case 'rdv':
+      case 'Rdv':
         return 'default' // Vert
-      case 'relance':
+      case 'Relance':
         return 'purple' // Violet
-      case 'test':
+      case 'Test':
         return 'secondary' // Gris
       default:
         return 'secondary'

@@ -60,6 +60,14 @@ export default {
           DEFAULT: "var(--alarm)",
           foreground: "var(--alarm-foreground)",
         },
+        cyan: {
+          DEFAULT: "var(--cyan)",
+          foreground: "var(--cyan-foreground)",
+        },
+        purple: {
+          DEFAULT: "var(--purple)",
+          foreground: "var(--purple-foreground)",
+        },
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",

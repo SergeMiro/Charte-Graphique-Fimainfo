@@ -1,8 +1,8 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
-:root {
+/* :root {
   --background: #fafafa;
   --foreground: #0a0a0a;
   --card: #ffffff;
@@ -42,8 +42,8 @@
   --accent-foreground: #d6f0f6;
   --destructive: #7f1d1d;
   --destructive-foreground: #d6f0f6;
-  --border: #004b80;
-  --input: #004b80;
+  --border: #b9cbd8;
+  --input: #b9cbd8;
   --ring: #7fb3ff;
 }
 
@@ -71,22 +71,22 @@ body {
 }
 
 /* SAM theme button hover styles */
-/* .theme-sam button:hover {
+.theme-sam button:hover {
   background-color: #5b6485 !important;
   color: white !important;
 }
 
 .theme-sam button:hover svg {
   color: white !important;
-} */
+}
 
 .theme-dark {
-  --primary: #6f89a7;
+  --primary: #899eb7;
   --secondary: #004b80;
   --background: #1a2a3a;
   --foreground: #ffffff;
   --accent: #c0c0c0;
-  --muted: #EBECF0;
+  --muted: #a19ea5;
 }
 
 .theme-accent {
@@ -96,4 +96,4 @@ body {
   --foreground: #3a4a6b;
   --accent: #c0c0c0;
   --muted: #e0e8f0;
-}
+} */

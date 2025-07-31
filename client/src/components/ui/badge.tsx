@@ -17,8 +17,8 @@ const badgeVariants = cva(
         outline: "text-foreground",
         success: "border-transparent bg-success text-success-foreground hover:bg-success/80",
         alarm: "border-transparent bg-alarm text-alarm-foreground hover:bg-alarm/80",
-        blue: "border-transparent text-white hover:bg-opacity-80",
-        purple: "border-transparent text-white hover:bg-opacity-80",
+        blue: "border-transparent text-cyan-foreground hover:bg-opacity-80",
+        purple: "border-transparent text-purple-foreground hover:bg-opacity-80",
       },
     },
     defaultVariants: {
@@ -32,8 +32,8 @@ export interface BadgeProps
     VariantProps<typeof badgeVariants> {}
 
 function Badge({ className, variant, ...props }: BadgeProps) {
-  const style = variant === 'blue' ? { backgroundColor: '#00B8D9' } :
-               variant === 'purple' ? { backgroundColor: '#6554C0' } :
+  const style = variant === 'blue' ? { backgroundColor: 'var(--cyan)', color: 'var(--cyan-foreground)' } :
+               variant === 'purple' ? { backgroundColor: 'var(--purple)', color: 'var(--purple-foreground)' } :
                props.style;
 
   return (

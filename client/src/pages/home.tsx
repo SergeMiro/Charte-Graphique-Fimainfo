@@ -34,6 +34,7 @@ import { DialogDemo } from '@/components/ui/dialog-demo'
 import { AlertDialogDemo } from '@/components/ui/alert-dialog-demo'
 import { ToastDemo } from '@/components/ui/toast-demo'
 import { Toaster } from '@/components/ui/toaster'
+import { FilterableTable } from '@/components/ui/filterable-table'
 
 
 // Theme definitions moved to index.css
@@ -64,10 +65,12 @@ export default function Home() {
       {Object.entries(THEMES).map(([key, t]) => (
         <Button
           key={key}
-          variant={theme === key ? 'default' : 'secondary'}
+          variant="empty"
           size="sm"
           onClick={() => resetToStandardTheme(key as ThemeKey)}
-          className="text-xs px-8 py-1 h-8 justify-start"
+          className={`text-xs px-8 py-1 h-8 justify-start ${
+            theme === key ? 'bg-primary text-white border-primary' : ''
+          }`}
         >
           {t.label}
         </Button>
@@ -434,6 +437,11 @@ export default function Home() {
             <div className="flex flex-wrap gap-4 items-center">
               <ToastDemo />
             </div>
+          </div>
+
+          <div className="space-y-2 mt-4">
+            <h3 className="text-lg font-medium">Tableau filtrable</h3>
+            <FilterableTable />
           </div>
         </div>
       </Section>
